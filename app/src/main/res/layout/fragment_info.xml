@@ -1,0 +1,1748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#B296E3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/barontxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="BARON GARAGE"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="INFORMATION"
+                android:textColor="#E7CEEC"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/barontxt"
+                app:layout_constraintStart_toStartOf="@+id/barontxt"
+                app:layout_constraintTop_toBottomOf="@+id/barontxt" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardViewCar"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#E3D9F6"
+                app:cardCornerRadius="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtinfo">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="35dp"
+                    android:src="@drawable/car" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtCar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="CAR"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/CardViewCar"
+                app:layout_constraintStart_toStartOf="@+id/CardViewCar"
+                app:layout_constraintTop_toBottomOf="@+id/CardViewCar" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardViewTruck"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="#E3D9F6"
+                app:cardCornerRadius="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewInfo">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="35dp"
+                    android:src="@drawable/truck" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtTruck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="TRUCK"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/CardViewTruck"
+                app:layout_constraintStart_toStartOf="@+id/CardViewTruck"
+                app:layout_constraintTop_toBottomOf="@+id/CardViewTruck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardViewBus"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="#E3D9F6"
+                app:cardCornerRadius="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewInfoTruck">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="35dp"
+                    android:src="@drawable/bus" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtBus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="BUS"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/CardViewBus"
+                app:layout_constraintStart_toStartOf="@+id/CardViewBus"
+                app:layout_constraintTop_toBottomOf="@+id/CardViewBus" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardViewTaxi"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="#E3D9F6"
+                app:cardCornerRadius="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewInfoBus">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="35dp"
+                    android:src="@drawable/taxi" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtTaxi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="TAXI"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/CardViewTaxi"
+                app:layout_constraintStart_toStartOf="@+id/CardViewTaxi"
+                app:layout_constraintTop_toBottomOf="@+id/CardViewTaxi" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardViewMotorcycle"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="4dp"
+                app:cardBackgroundColor="#E3D9F6"
+                app:cardCornerRadius="80dp"
+                app:layout_constraintBottom_toTopOf="@+id/txtMotorcycle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewInfoMotor">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="35dp"
+                    android:src="@drawable/motorbike" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/txtMotorcycle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="MOTORCYCLE"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/CardViewMotorcycle"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="@+id/CardViewMotorcycle" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#E3D2E6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCar">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/closeImageCar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.984"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.007" />
+
+                    <TextView
+                        android:id="@+id/txtWelcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="WELCOME TO THE BARON GARAGE"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/closeImageCar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt1Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual"
+                        app:layout_constraintStart_toStartOf="@+id/txtWelcome"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
+
+                    <TextView
+                        android:id="@+id/txtEqual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
+
+                    <TextView
+                        android:id="@+id/txt10Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="10 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtWelcome"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
+
+                    <TextView
+                        android:id="@+id/txt2Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="2 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual2"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt1Hour"
+                        app:layout_constraintTop_toBottomOf="@+id/txt1Hour" />
+
+                    <TextView
+                        android:id="@+id/txtEqual2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual" />
+
+                    <TextView
+                        android:id="@+id/txt18Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="18 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt10Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual2"
+                        app:layout_constraintTop_toBottomOf="@+id/txt10Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt3Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="3 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual3"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt2Hour"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2Hour" />
+
+                    <TextView
+                        android:id="@+id/txtEqual3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual2" />
+
+                    <TextView
+                        android:id="@+id/txt25Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="25 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt18Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual3"
+                        app:layout_constraintTop_toBottomOf="@+id/txt18Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt4Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="4 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual4"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt3Hour"
+                        app:layout_constraintTop_toBottomOf="@+id/txt3Hour" />
+
+                    <TextView
+                        android:id="@+id/txtEqual4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual3" />
+
+                    <TextView
+                        android:id="@+id/txt30Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="32 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt25Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual4"
+                        app:layout_constraintTop_toBottomOf="@+id/txt25Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt5Hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual5"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt4Hour"
+                        app:layout_constraintTop_toBottomOf="@+id/txt4Hour" />
+
+                    <TextView
+                        android:id="@+id/txtEqual5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual4" />
+
+                    <TextView
+                        android:id="@+id/txt40Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="40 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt30Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual5"
+                        app:layout_constraintTop_toBottomOf="@+id/txt30Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt1Day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 DAY"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual6"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt5Hour"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5Hour" />
+
+                    <TextView
+                        android:id="@+id/txtEqual6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual5" />
+
+                    <TextView
+                        android:id="@+id/txt50Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="50 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt40Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual6"
+                        app:layout_constraintTop_toBottomOf="@+id/txt40Dollar" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="THE CAR WASH IS FREE AFTER 3 HOURS"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual6" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewInfoTruck"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#E3D2E6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTruck">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/closeImageTruck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.984"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.007" />
+
+                    <TextView
+                        android:id="@+id/txtWelcome1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="WELCOME TO THE BARON GARAGE"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/closeImageTruck"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt1Hour1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual7"
+                        app:layout_constraintStart_toStartOf="@+id/txtWelcome1"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome1" />
+
+                    <TextView
+                        android:id="@+id/txtEqual7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome1" />
+
+                    <TextView
+                        android:id="@+id/txt15Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="15 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtWelcome1"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual7"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome1" />
+
+                    <TextView
+                        android:id="@+id/txt2Hour1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="2 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual8"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt1Hour1"
+                        app:layout_constraintTop_toBottomOf="@+id/txt1Hour1" />
+
+                    <TextView
+                        android:id="@+id/txtEqual8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual7" />
+
+                    <TextView
+                        android:id="@+id/txt27Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="27 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt15Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual8"
+                        app:layout_constraintTop_toBottomOf="@+id/txt15Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt3Hour1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="3 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual9"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt2Hour1"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2Hour1" />
+
+                    <TextView
+                        android:id="@+id/txtEqual9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual8" />
+
+                    <TextView
+                        android:id="@+id/txt42Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="42 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt27Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual9"
+                        app:layout_constraintTop_toBottomOf="@+id/txt27Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt4Hour1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="4 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual10"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt3Hour1"
+                        app:layout_constraintTop_toBottomOf="@+id/txt3Hour1" />
+
+                    <TextView
+                        android:id="@+id/txtEqual10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual9" />
+
+                    <TextView
+                        android:id="@+id/txt55Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="55 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt42Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual10"
+                        app:layout_constraintTop_toBottomOf="@+id/txt42Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt5Hour1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual11"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt4Hour1"
+                        app:layout_constraintTop_toBottomOf="@+id/txt4Hour1" />
+
+                    <TextView
+                        android:id="@+id/txtEqual11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual10" />
+
+                    <TextView
+                        android:id="@+id/txt65Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="65 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt55Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual11"
+                        app:layout_constraintTop_toBottomOf="@+id/txt55Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt1Day1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 DAY"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual12"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt5Hour1"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5Hour1" />
+
+                    <TextView
+                        android:id="@+id/txtEqual12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual11" />
+
+                    <TextView
+                        android:id="@+id/txt75Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="75 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt65Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual12"
+                        app:layout_constraintTop_toBottomOf="@+id/txt65Dollar" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="THE CAR WASH IS FREE AFTER 3 HOURS"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual12" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewInfoBus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#E3D2E6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtBus">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/closeImageBus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.984"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.007" />
+
+                    <TextView
+                        android:id="@+id/txtWelcome2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="WELCOME TO THE BARON GARAGE"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/closeImageBus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt1Hour2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual13"
+                        app:layout_constraintStart_toStartOf="@+id/txtWelcome2"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome2" />
+
+                    <TextView
+                        android:id="@+id/txtEqual13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome2" />
+
+                    <TextView
+                        android:id="@+id/txt5Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtWelcome2"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual13"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome2" />
+
+                    <TextView
+                        android:id="@+id/txt2Hour2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="2 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual14"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt1Hour2"
+                        app:layout_constraintTop_toBottomOf="@+id/txt1Hour2" />
+
+                    <TextView
+                        android:id="@+id/txtEqual14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual13" />
+
+                    <TextView
+                        android:id="@+id/txt9Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="9 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt5Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual14"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt3Hour2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="3 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual15"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt2Hour2"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2Hour2" />
+
+                    <TextView
+                        android:id="@+id/txtEqual15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual14" />
+
+                    <TextView
+                        android:id="@+id/txt12Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="12 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt9Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual15"
+                        app:layout_constraintTop_toBottomOf="@+id/txt9Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt4Hour2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="4 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual15"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt3Hour2"
+                        app:layout_constraintTop_toBottomOf="@+id/txt3Hour2" />
+
+                    <TextView
+                        android:id="@+id/txtEqual16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual15" />
+
+                    <TextView
+                        android:id="@+id/txt15.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="15 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt12Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual16"
+                        app:layout_constraintTop_toBottomOf="@+id/txt12Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt5Hour2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual17"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt4Hour2"
+                        app:layout_constraintTop_toBottomOf="@+id/txt4Hour2" />
+
+                    <TextView
+                        android:id="@+id/txtEqual17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual16" />
+
+                    <TextView
+                        android:id="@+id/txt17Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="17 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt12Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual17"
+                        app:layout_constraintTop_toBottomOf="@+id/txt15.1Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt1Day2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 DAY"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual17"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt5Hour2"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5Hour2" />
+
+                    <TextView
+                        android:id="@+id/txtEqual18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual17" />
+
+                    <TextView
+                        android:id="@+id/txt25.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="25 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt17Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual18"
+                        app:layout_constraintTop_toBottomOf="@+id/txt17Dollar" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="THE CAR WASH IS FREE AFTER 3 HOURS"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual18" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewInfoTaxi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#E3D2E6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTaxi">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/closeImageTaxi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.984"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.007" />
+
+                    <TextView
+                        android:id="@+id/txtWelcome3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="WELCOME TO THE BARON GARAGE"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/closeImageTaxi"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt1Hour3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual19"
+                        app:layout_constraintStart_toStartOf="@+id/txtWelcome3"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome3" />
+
+                    <TextView
+                        android:id="@+id/txtEqual19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome3" />
+
+                    <TextView
+                        android:id="@+id/txt7Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="7 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtWelcome3"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual19"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome3" />
+
+                    <TextView
+                        android:id="@+id/txt2Hour3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="2 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual20"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt1Hour3"
+                        app:layout_constraintTop_toBottomOf="@+id/txt1Hour3" />
+
+                    <TextView
+                        android:id="@+id/txtEqual20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual19" />
+
+                    <TextView
+                        android:id="@+id/txt13Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="13 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt7Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual20"
+                        app:layout_constraintTop_toBottomOf="@+id/txt7Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt3Hour3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="3 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual21"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt2Hour3"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2Hour3" />
+
+                    <TextView
+                        android:id="@+id/txtEqual21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual20" />
+
+                    <TextView
+                        android:id="@+id/txt18.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="18 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt13Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual21"
+                        app:layout_constraintTop_toBottomOf="@+id/txt13Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt4Hour3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="4 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual22"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt3Hour3"
+                        app:layout_constraintTop_toBottomOf="@+id/txt3Hour3" />
+
+                    <TextView
+                        android:id="@+id/txtEqual22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual21" />
+
+                    <TextView
+                        android:id="@+id/txt24.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="24 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt18.1Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual22"
+                        app:layout_constraintTop_toBottomOf="@+id/txt18.1Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt5Hour3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual23"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt4Hour3"
+                        app:layout_constraintTop_toBottomOf="@+id/txt4Hour3" />
+
+                    <TextView
+                        android:id="@+id/txtEqual23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual22" />
+
+                    <TextView
+                        android:id="@+id/txt30.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="30 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt24.1Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual23"
+                        app:layout_constraintTop_toBottomOf="@+id/txt24.1Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt1Day3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 DAY"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual24"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt5Hour3"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5Hour3" />
+
+                    <TextView
+                        android:id="@+id/txtEqual24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual23" />
+
+                    <TextView
+                        android:id="@+id/txt35Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="35 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt30.1Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual24"
+                        app:layout_constraintTop_toBottomOf="@+id/txt30.1Dollar" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="THE CAR WASH IS FREE AFTER 3 HOURS"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual24" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewInfoMotor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:cardBackgroundColor="#E3D2E6"
+                app:layout_constraintBottom_toTopOf="@+id/CardViewMotorcycle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewInfoTaxi">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/closeImageMotor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_close"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.984"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.007" />
+
+                    <TextView
+                        android:id="@+id/txtWelcome4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="WELCOME TO THE BARON GARAGE"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/closeImageMotor"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt1Hour4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual25"
+                        app:layout_constraintStart_toStartOf="@+id/txtWelcome4"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome4" />
+
+                    <TextView
+                        android:id="@+id/txtEqual25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome4" />
+
+                    <TextView
+                        android:id="@+id/txt3Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="3 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtWelcome4"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual25"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWelcome4" />
+
+                    <TextView
+                        android:id="@+id/txt2Hour4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="2 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual26"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt1Hour4"
+                        app:layout_constraintTop_toBottomOf="@+id/txt1Hour4" />
+
+                    <TextView
+                        android:id="@+id/txtEqual26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual25" />
+
+                    <TextView
+                        android:id="@+id/txt5.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt3Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual26"
+                        app:layout_constraintTop_toBottomOf="@+id/txt3Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt3Hour4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="3 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual27"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt2Hour4"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2Hour4" />
+
+                    <TextView
+                        android:id="@+id/txtEqual27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual26" />
+
+                    <TextView
+                        android:id="@+id/txt8Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="8 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt5.1Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual27"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5.1Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt4Hour4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="4 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual28"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt3Hour4"
+                        app:layout_constraintTop_toBottomOf="@+id/txt3Hour4" />
+
+                    <TextView
+                        android:id="@+id/txtEqual28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual27" />
+
+                    <TextView
+                        android:id="@+id/txt10.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="10 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt8Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual28"
+                        app:layout_constraintTop_toBottomOf="@+id/txt8Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt5Hour4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="5 HOUR"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual29"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt4Hour4"
+                        app:layout_constraintTop_toBottomOf="@+id/txt4Hour4" />
+
+                    <TextView
+                        android:id="@+id/txtEqual29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual28" />
+
+                    <TextView
+                        android:id="@+id/txt12.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="12 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt10.1Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual29"
+                        app:layout_constraintTop_toBottomOf="@+id/txt10.1Dollar" />
+
+
+                    <TextView
+                        android:id="@+id/txt1Day4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="1 DAY"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEqual30"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txt5Hour4"
+                        app:layout_constraintTop_toBottomOf="@+id/txt5Hour4" />
+
+                    <TextView
+                        android:id="@+id/txtEqual30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="="
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual29" />
+
+                    <TextView
+                        android:id="@+id/txt20.1Dollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="20 $"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt12.1Dollar"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEqual30"
+                        app:layout_constraintTop_toBottomOf="@+id/txt12.1Dollar" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="THE CAR WASH IS FREE AFTER 3 HOURS"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEqual30" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>
