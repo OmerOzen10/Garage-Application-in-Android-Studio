@@ -26,23 +26,25 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(navListener);
     }
 
-    private NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    private NavigationBarView.OnItemSelectedListener navListener =
 
-            Fragment selectedFragment = null;
-            switch (item.getItemId()){
-                case R.id.nav_info:
-                    selectedFragment = new InfoFragment();
-                    break;
-                case R.id.nav_add:
-                    selectedFragment = new AddFragment();
-                case R.id.nav_see:
-                    selectedFragment = new SeeFragment();
-
-            }
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame,selectedFragment).addToBackStack(null).commit();
-            return true;
-        }
-    };
+            new NavigationBarView.OnItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+                    switch (item.getItemId()) {
+                        case    R.id.nav_info:
+                            selectedFragment = new InfoFragment();
+                            break;
+                        case R.id.nav_add:
+                            selectedFragment = new AddFragment();
+                            break;
+                        case R.id.nav_see:
+                            selectedFragment = new SeeFragment();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,selectedFragment).addToBackStack(null).commit();
+                    return true;
+                }
+            };
 }
