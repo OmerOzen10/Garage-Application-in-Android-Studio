@@ -9,21 +9,63 @@ import androidx.fragment.app.FragmentManager;
 import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static ArrayList<Vehicles> vehicleList;
+    public static final String TAG = "MainActivity";
+
+    public static DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame,new InfoFragment()).addToBackStack(null).commit();
+
+        vehicleList = new ArrayList<>();
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(navListener);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("vehicles");
+        readData();
+    }
+
+    private void readData() {
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                vehicleList.clear();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Vehicles vehicles = dataSnapshot.getValue(Vehicles.class);
+                    vehicleList.add(vehicles);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Log.w(TAG, "loadPost:onCancelled ", error.toException());
+
+            }
+        };
+        databaseReference.addValueEventListener(postListener);
+
     }
 
     private NavigationBarView.OnItemSelectedListener navListener =

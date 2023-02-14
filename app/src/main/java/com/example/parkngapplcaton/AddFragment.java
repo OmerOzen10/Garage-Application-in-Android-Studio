@@ -7,25 +7,39 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Date;
 import java.sql.Time;
 import java.util.Locale;
+import java.util.Objects;
 
 public class AddFragment extends Fragment {
 
     TextInputLayout layoutModel,layoutPlaque,layoutEntered,layoutDuration;
 
     TextInputEditText edtModel,edtPlaque,edtEntered,edtDuration;
+
+    Spinner vehicleType;
+
+    Button addButton;
+
+    DatabaseReference databaseReference;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -39,7 +53,56 @@ public class AddFragment extends Fragment {
         layoutDuration = view.findViewById(R.id.layoutDuration);
         edtDuration = view.findViewById(R.id.edtDuration);
 
+        vehicleType = view.findViewById(R.id.vehicleType);
+        addButton = view.findViewById(R.id.addButton);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         Correction();
+
+
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             if (Correction()){
+                 InsertData();
+             } else {
+                 Toast.makeText(getView().getContext(), "SOMETHING WENT WRONG!!", Toast.LENGTH_SHORT).show();
+             }
+            }
+        });
+
+
+    }
+
+    private void InsertData() {
+
+        String modelName = Objects.requireNonNull(edtModel.getText()).toString();
+        String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
+        String time = Objects.requireNonNull(edtEntered.getText()).toString();
+        String duration = Objects.requireNonNull(edtDuration.getText()).toString();
+        String vehicle = vehicleType.getSelectedItem().toString();
+        int id = MainActivity.vehicleList.size()+1;
+
+        Vehicles vehicles = new Vehicles(modelName,plaque,time,duration,vehicle,id);
+
+
+
+            databaseReference.child("vehicles").child(String.valueOf(id)).setValue(vehicles)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getView().getContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    });
+
+
+
+
     }
 
     public boolean Correction(){

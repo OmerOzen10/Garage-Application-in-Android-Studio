@@ -11,7 +11,7 @@
         android:id="@+id/txtParking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins_bold"
         android:text="PARKING"
         android:textColor="#000000"
@@ -25,7 +25,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:hint="Model Name"
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/black"
@@ -45,6 +45,7 @@
             android:id="@+id/edtModel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
             android:maxLength="27"
             android:outlineAmbientShadowColor="@color/black" />
 
@@ -56,7 +57,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:hint="Plaque"
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/black"
@@ -78,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_semibold"
             android:maxLength="11"
             android:outlineAmbientShadowColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/layoutPlaque" />
@@ -88,9 +90,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutEntered"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="200dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:hint="Time"
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/black"
@@ -112,6 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_semibold"
             android:maxLength="5"
             android:outlineAmbientShadowColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/layoutEntered" />
@@ -122,7 +125,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutDuration"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="140dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:hint="Duration"
@@ -149,11 +152,56 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:maxLength="2"
+            android:fontFamily="@font/poppins_semibold"
             android:outlineAmbientShadowColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/layoutDuration" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:outlineSpotShadowColor="@color/white"
+        app:cardBackgroundColor="#98DAC9"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutEntered">
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:text="ADD"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+    </Button>
+
+    <Spinner
+        android:id="@+id/vehicleType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/black"
+        android:entries="@array/item_names"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/layoutDuration"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/layoutEntered"
+        app:layout_constraintTop_toBottomOf="@+id/layoutEntered" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

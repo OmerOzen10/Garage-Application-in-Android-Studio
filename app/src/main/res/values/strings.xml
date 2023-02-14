@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ParkingApplication</string>
+
+    <string-array name="item_names">
+        <item>Car</item>
+        <item>Truck</item>
+        <item>Bus</item>
+        <item>Taxi</item>
+        <item>Motorcycle</item>
+    </string-array>
 </resources>
