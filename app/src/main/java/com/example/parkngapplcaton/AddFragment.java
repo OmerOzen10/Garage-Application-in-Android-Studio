@@ -57,55 +57,8 @@ public class AddFragment extends Fragment {
         addButton = view.findViewById(R.id.addButton);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        Correction();
 
 
-
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-             if (Correction()){
-                 InsertData();
-             } else {
-                 Toast.makeText(getView().getContext(), "SOMETHING WENT WRONG!!", Toast.LENGTH_SHORT).show();
-             }
-            }
-        });
-
-
-    }
-
-    private void InsertData() {
-
-        String modelName = Objects.requireNonNull(edtModel.getText()).toString();
-        String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
-        String time = Objects.requireNonNull(edtEntered.getText()).toString();
-        String duration = Objects.requireNonNull(edtDuration.getText()).toString();
-        String vehicle = vehicleType.getSelectedItem().toString();
-        int id = MainActivity.vehicleList.size()+1;
-
-        Vehicles vehicles = new Vehicles(modelName,plaque,time,duration,vehicle,id);
-
-
-
-            databaseReference.child("vehicles").child(String.valueOf(id)).setValue(vehicles)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getView().getContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
-                            }
-
-
-                        }
-                    });
-
-
-
-
-    }
-
-    public boolean Correction(){
         edtModel.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -128,6 +81,7 @@ public class AddFragment extends Fragment {
 
             }
         });
+
         edtPlaque.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -169,72 +123,7 @@ public class AddFragment extends Fragment {
 
             }
         });
-        Time();
-        edtDuration.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                String duration = charSequence.toString();
-
-                if (!duration.isEmpty()) {
-                    layoutDuration.setError("");
-                    if (duration.length() == 2){
-                        layoutDuration.setError("");
-
-                        if (Character.isDigit(duration.charAt(0))){
-                            layoutDuration.setError("");
-
-                            if (Character.isDigit(duration.charAt(1))){
-                                layoutDuration.setError("");
-
-                                if (Integer.parseInt(duration)<25){
-                                    layoutDuration.setError("");
-                                }else {
-                                    layoutDuration.setError("Max 1 Day!");
-                                }
-
-                            }else {
-                                layoutDuration.setError("ex: XX");
-                            }
-
-                        }else {
-                            layoutDuration.setError("ex: XX");
-                        }
-
-                    }else {
-
-                        layoutDuration.setError("ex: XX");
-                    }
-
-
-                }else {
-                    layoutDuration.setError("Required");
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_add,container,false);
-
-
-    }
-
-    public void Time(){
         edtEntered.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -311,5 +200,205 @@ public class AddFragment extends Fragment {
 
             }
         });
+
+        edtDuration.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                String duration = charSequence.toString();
+
+                if (!duration.isEmpty()) {
+                    layoutDuration.setError("");
+                    if (duration.length() == 2){
+                        layoutDuration.setError("");
+
+                        if (Character.isDigit(duration.charAt(0))){
+                            layoutDuration.setError("");
+
+                            if (Character.isDigit(duration.charAt(1))){
+                                layoutDuration.setError("");
+
+                                if (Integer.parseInt(duration)<25){
+                                    layoutDuration.setError("");
+                                }else {
+                                    layoutDuration.setError("Max 1 Day!");
+                                }
+
+                            }else {
+                                layoutDuration.setError("ex: XX");
+                            }
+
+                        }else {
+                            layoutDuration.setError("ex: XX");
+                        }
+
+                    }else {
+
+                        layoutDuration.setError("ex: XX");
+                    }
+
+
+                }else {
+                    layoutDuration.setError("Required");
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+
+        addButton.setOnClickListener(view1 -> {
+
+            if (Correction()){
+                InsertData();
+                edtModel.setText("");
+                edtModel.setError(null);
+                edtPlaque.setText("");
+                edtPlaque.setError(null);
+                edtDuration.setText("");
+                edtDuration.setError(null);
+                edtEntered.setText("");
+                edtEntered.setError(null);
+            }else {
+                Toast.makeText(view.getContext(), "Something Wrong!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
+
+    private boolean Correction(){
+        if (edtModel.getText().toString().isEmpty()){
+            edtModel.requestFocus();
+            return false;
+        }
+        if (edtPlaque.getText().toString().isEmpty()){
+            edtPlaque.requestFocus();
+            return false;
+        }
+        if (edtPlaque.length()<7){
+            edtPlaque.requestFocus();
+            return false;
+        }
+        if (edtPlaque.getText().toString().contains(edtPlaque.getText().toString().toLowerCase())){
+            edtPlaque.requestFocus();
+            return false;
+        }
+
+        if (edtEntered.getText().toString().isEmpty()){
+            edtEntered.requestFocus();
+            return false;
+        }
+
+        if (edtEntered.length()!=5){
+            edtEntered.requestFocus();
+            return false;
+        }
+
+        if (!Character.isDigit(edtEntered.getText().charAt(0))){
+            edtEntered.requestFocus();
+            return false;
+        }
+        if (!Character.isDigit(edtEntered.getText().charAt(1))){
+            edtEntered.requestFocus();
+            return false;
+        }
+        if (!Character.isDigit(edtEntered.getText().charAt(3))){
+            edtEntered.requestFocus();
+            return false;
+        }
+        if (!Character.isDigit(edtEntered.getText().charAt(4))){
+            edtEntered.requestFocus();
+            return false;
+        }
+        if (edtEntered.getText().charAt(2) !=':'){
+            edtEntered.requestFocus();
+            return false;
+        }
+        String enteredTime = edtEntered.getText().toString();
+        String[] parts = enteredTime.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        if (hours >= 24) {
+            edtEntered.requestFocus();
+            return false;
+        }
+        if (minutes >= 60) {
+            edtEntered.requestFocus();
+            return false;
+        }
+
+        if (edtDuration.getText().toString().isEmpty()){
+            edtDuration.requestFocus();
+            return false;
+        }
+        if (edtDuration.length()!=2){
+            edtDuration.requestFocus();
+            return false;
+        }
+        if (!Character.isDigit(edtDuration.getText().charAt(0))){
+            edtDuration.requestFocus();
+            return false;
+        }
+        if (!Character.isDigit(edtDuration.getText().charAt(1))){
+            edtDuration.requestFocus();
+            return false;
+        }
+
+        if (Integer.parseInt(edtDuration.getText().toString())>24) {
+            edtDuration.requestFocus();
+            return false;
+        }
+        return true;
+
+        }
+
+    private void InsertData() {
+
+        String modelName = Objects.requireNonNull(edtModel.getText()).toString();
+        String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
+        String time = Objects.requireNonNull(edtEntered.getText()).toString();
+        String duration = Objects.requireNonNull(edtDuration.getText()).toString();
+        String vehicle = vehicleType.getSelectedItem().toString();
+        int id = MainActivity.vehicleList.size()+1;
+
+        Vehicles vehicles = new Vehicles(modelName,plaque,time,duration,vehicle,id);
+
+
+
+            databaseReference.child("vehicles").child(String.valueOf(id)).setValue(vehicles)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getView().getContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    });
+
+
+
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_add,container,false);
+
+
     }
 }
