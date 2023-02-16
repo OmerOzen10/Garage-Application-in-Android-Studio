@@ -261,18 +261,13 @@ public class AddFragment extends Fragment {
 
             if (Correction()){
                 InsertData();
-                edtModel.setText("");
-                edtModel.setError(null);
-                edtPlaque.setText("");
-                edtPlaque.setError(null);
-                edtDuration.setText("");
-                edtDuration.setError(null);
-                edtEntered.setText("");
-                edtEntered.setError(null);
+
             }else {
                 Toast.makeText(view.getContext(), "Something Wrong!!", Toast.LENGTH_SHORT).show();
             }
+
         });
+
 
 
 

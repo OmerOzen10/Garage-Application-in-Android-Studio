@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutOmer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5sp"
+    android:layout_marginRight="5sp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/border">
+
+    <TextView
+
+        android:id="@+id/txtModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Model Name"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtVehicleType"
+        app:layout_constraintStart_toStartOf="@+id/txtVehicleType"
+        app:layout_constraintTop_toBottomOf="@+id/txtVehicleType" />
+
+    <TextView
+        android:id="@+id/txtPlaque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Plaque"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtDuration"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtModel" />
+
+    <TextView
+        android:id="@+id/txtVehicleType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingTop="10dp"
+        android:text="Vehicle Type"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEntered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Entered Time"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txtDuration"
+        app:layout_constraintTop_toTopOf="@+id/txtModel" />
+
+    <TextView
+        android:id="@+id/txtDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Duration"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtVehicleType"
+        app:layout_constraintStart_toStartOf="@+id/txtVehicleType"
+        app:layout_constraintTop_toBottomOf="@+id/txtModel" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#434242"
+        android:visibility="visible"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtVehicleType"
+        app:layout_constraintStart_toEndOf="@+id/txtVehicleType"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+
+            android:id="@+id/buttonDelete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#434242"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="3dp"
+            android:text="Delete"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

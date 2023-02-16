@@ -77,7 +77,6 @@ public class Vehicles {
                 ", time='" + time + '\'' +
                 ", duration='" + duration + '\'' +
                 ", vehicleType='" + vehicleType + '\'' +
-                ", id=" + id +
                 '}';
     }
 }
