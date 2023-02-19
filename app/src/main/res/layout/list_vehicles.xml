@@ -7,8 +7,9 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="5sp"
     android:layout_marginRight="5sp"
-    android:layout_marginBottom="20dp"
-    android:background="@drawable/border">
+
+    android:background="@drawable/border"
+    android:layout_marginTop="20dp">
 
     <TextView
 
@@ -81,25 +82,50 @@
         android:id="@+id/cardViewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:backgroundTint="#434242"
-        android:visibility="visible"
-        app:cardCornerRadius="30dp"
+        android:backgroundTint="@color/black"
+        android:visibility="gone"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/txtVehicleType"
-        app:layout_constraintStart_toEndOf="@+id/txtVehicleType"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="@+id/txtEntered"
+        app:layout_constraintStart_toStartOf="@+id/txtEntered"
+        app:layout_constraintTop_toTopOf="@+id/txtVehicleType">
 
-        <TextView
-
-            android:id="@+id/buttonDelete"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#434242"
-            android:fontFamily="@font/poppins_semibold"
-            android:padding="3dp"
-            android:text="Delete"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/closeCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonDelete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buttonDelete"
+                app:layout_constraintTop_toTopOf="@+id/buttonDelete" />
+
+            <TextView
+
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="#EC1212"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="3sp"
+                android:text="Delete"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 

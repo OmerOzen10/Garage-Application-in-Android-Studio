@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new AddFragment();
                             break;
                         case R.id.nav_see:
-                            selectedFragment = new SeeFragment();
+                            selectedFragment = new SeeFragment(databaseReference);
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame,selectedFragment).addToBackStack(null).commit();

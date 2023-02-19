@@ -15,9 +15,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class SeeFragment extends Fragment {
     RecyclerView recyclerView;
     public static MyAdapter adapter;
+    ConstraintLayout layout;
+    CardView cardViewButton;
+    private DatabaseReference mDatabaseRef;
+
+    public SeeFragment(DatabaseReference databaseRef) {
+        mDatabaseRef = databaseRef;
+    }
 
 
 
@@ -35,8 +44,7 @@ public class SeeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recView);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        adapter = new MyAdapter(view.getContext(),MainActivity.vehicleList);
+        adapter = new MyAdapter(view.getContext(),MainActivity.vehicleList,mDatabaseRef);
         recyclerView.setAdapter(adapter);
-
     }
 }
