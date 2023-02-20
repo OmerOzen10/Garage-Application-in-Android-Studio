@@ -79,6 +79,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 // Remove the item from the adapter
                 vehiclesList.remove(position);
                 notifyItemRemoved(position);
+                notifyDataSetChanged();
+                holder.cardViewButton.setVisibility(View.GONE);
             }
         });
 
@@ -123,10 +125,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         }
     }
 
-    public void deleteItem(int position){
-
-
-    }
 
 
 

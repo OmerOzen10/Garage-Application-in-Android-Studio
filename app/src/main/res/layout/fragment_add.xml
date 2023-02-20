@@ -88,46 +88,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutEntered"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:hint="Time"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:counterEnabled="true"
-        app:counterMaxLength="5"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:errorEnabled="true"
-        app:errorTextColor="#FF0000"
-        app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/layoutDuration"
-        app:layout_constraintStart_toStartOf="@+id/layoutPlaque"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPlaque"
-        app:placeholderText="ex: XX:XX"
-        app:startIconDrawable="@drawable/ic_time">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtEntered"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:maxLength="5"
-            android:outlineAmbientShadowColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/layoutEntered" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutDuration"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:hint="Duration"
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/black"
@@ -138,46 +102,29 @@
         app:errorEnabled="true"
         app:errorTextColor="#FF0000"
         app:hintTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/layoutEntered"
-        app:layout_constraintEnd_toEndOf="@+id/layoutPlaque"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/layoutEntered"
-        app:layout_constraintTop_toTopOf="@+id/layoutEntered"
-        app:startIconDrawable="@drawable/ic_duration"
-        app:placeholderText="hour">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPlaque"
+        app:placeholderText="hour"
+        app:startIconDrawable="@drawable/ic_duration">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:maxLength="2"
             android:fontFamily="@font/poppins_semibold"
+            android:maxLength="2"
             android:outlineAmbientShadowColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/layoutDuration" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:outlineSpotShadowColor="@color/white"
-        app:cardBackgroundColor="#98DAC9"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutEntered">
-
-    </androidx.cardview.widget.CardView>
-
     <Button
         android:id="@+id/addButton"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_bold"
         android:text="ADD"
@@ -186,7 +133,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/layoutDuration">
 
     </Button>
 
@@ -194,14 +141,13 @@
         android:id="@+id/vehicleType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:backgroundTint="@color/black"
         android:entries="@array/item_names"
         android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/layoutDuration"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/layoutEntered"
-        app:layout_constraintTop_toBottomOf="@+id/layoutEntered" />
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutDuration" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

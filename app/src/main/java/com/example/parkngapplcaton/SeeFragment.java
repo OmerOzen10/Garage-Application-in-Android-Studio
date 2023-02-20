@@ -20,8 +20,6 @@ import com.google.firebase.database.DatabaseReference;
 public class SeeFragment extends Fragment {
     RecyclerView recyclerView;
     public static MyAdapter adapter;
-    ConstraintLayout layout;
-    CardView cardViewButton;
     private DatabaseReference mDatabaseRef;
 
     public SeeFragment(DatabaseReference databaseRef) {

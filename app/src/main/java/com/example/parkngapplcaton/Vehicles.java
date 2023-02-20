@@ -7,12 +7,12 @@ public class Vehicles {
     String time;
     String duration;
     String vehicleType;
-    int id;
+    String id;
 
     public Vehicles(){}
 
 
-    public Vehicles(String modelName, String plaque, String time, String duration, String vehicleType, int id) {
+    public Vehicles(String modelName, String plaque, String time, String duration, String vehicleType, String id) {
         this.modelName = modelName;
         this.plaque = plaque;
         this.time = time;
@@ -61,11 +61,11 @@ public class Vehicles {
         this.vehicleType = vehicleType;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

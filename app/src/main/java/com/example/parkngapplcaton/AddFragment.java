@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,18 +27,21 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
 
 public class AddFragment extends Fragment {
 
-    TextInputLayout layoutModel,layoutPlaque,layoutEntered,layoutDuration;
+    TextInputLayout layoutModel,layoutPlaque,layoutDuration;
 
-    TextInputEditText edtModel,edtPlaque,edtEntered,edtDuration;
+    TextInputEditText edtModel,edtPlaque,edtDuration;
 
     Spinner vehicleType;
 
     Button addButton;
+
+    public  final static String TAG = "AddFragment";
 
     DatabaseReference databaseReference;
 
@@ -48,8 +52,6 @@ public class AddFragment extends Fragment {
         layoutPlaque = view.findViewById(R.id.layoutPlaque);
         edtModel = view.findViewById(R.id.edtModel);
         edtPlaque = view.findViewById(R.id.edtPlaque);
-        layoutEntered = view.findViewById(R.id.layoutEntered);
-        edtEntered = view.findViewById(R.id.edtEntered);
         layoutDuration = view.findViewById(R.id.layoutDuration);
         edtDuration = view.findViewById(R.id.edtDuration);
 
@@ -123,84 +125,6 @@ public class AddFragment extends Fragment {
 
             }
         });
-
-        edtEntered.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                String entryTime = charSequence.toString();
-                if (!entryTime.isEmpty()){
-                    layoutEntered.setError("");
-
-                    if (entryTime.length() == 5){
-                        layoutEntered.setError("");
-                        if (Character.isDigit(entryTime.charAt(0))){
-                            layoutEntered.setError("");
-                            if (Character.isDigit(entryTime.charAt(1))){
-                                layoutEntered.setError("");
-                                if (Character.isDigit(entryTime.charAt(3))){
-                                    layoutEntered.setError("");
-                                    if (Character.isDigit(entryTime.charAt(4))){
-                                        layoutEntered.setError("");
-
-                                        if (entryTime.charAt(2)==':'){
-                                            layoutEntered.setError("");
-
-                                            String[] parts = entryTime.split(":");
-                                            int hours = Integer.parseInt(parts[0]);
-                                            int minutes = Integer.parseInt(parts[1]);
-                                            if (hours<24){
-                                                layoutEntered.setError("");
-                                                if (minutes<60){
-                                                    layoutEntered.setError("");
-                                                }else {
-                                                    layoutEntered.setError("Invalid Time!");
-
-                                                }
-
-                                            }else {
-                                                layoutEntered.setError("Invalid Time!");
-
-                                            }
-
-                                        }else {
-                                            layoutEntered.setError("Invalid Time!");
-                                        }
-
-                                    }else {
-                                        layoutEntered.setError("Invalid Time!");
-                                    }
-
-                                }else {
-                                    layoutEntered.setError("Invalid Time!");
-                                }
-
-                            }else {
-                                layoutEntered.setError("Invalid Time!");
-                            }
-                        }else {
-                            layoutEntered.setError("Invalid Time!");
-                        }
-                    }else {
-                        layoutEntered.setError("Invalid Time!");
-                    }
-
-                }else {
-                    layoutEntered.setError("Required");
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
         edtDuration.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -291,49 +215,6 @@ public class AddFragment extends Fragment {
             return false;
         }
 
-        if (edtEntered.getText().toString().isEmpty()){
-            edtEntered.requestFocus();
-            return false;
-        }
-
-        if (edtEntered.length()!=5){
-            edtEntered.requestFocus();
-            return false;
-        }
-
-        if (!Character.isDigit(edtEntered.getText().charAt(0))){
-            edtEntered.requestFocus();
-            return false;
-        }
-        if (!Character.isDigit(edtEntered.getText().charAt(1))){
-            edtEntered.requestFocus();
-            return false;
-        }
-        if (!Character.isDigit(edtEntered.getText().charAt(3))){
-            edtEntered.requestFocus();
-            return false;
-        }
-        if (!Character.isDigit(edtEntered.getText().charAt(4))){
-            edtEntered.requestFocus();
-            return false;
-        }
-        if (edtEntered.getText().charAt(2) !=':'){
-            edtEntered.requestFocus();
-            return false;
-        }
-        String enteredTime = edtEntered.getText().toString();
-        String[] parts = enteredTime.split(":");
-        int hours = Integer.parseInt(parts[0]);
-        int minutes = Integer.parseInt(parts[1]);
-        if (hours >= 24) {
-            edtEntered.requestFocus();
-            return false;
-        }
-        if (minutes >= 60) {
-            edtEntered.requestFocus();
-            return false;
-        }
-
         if (edtDuration.getText().toString().isEmpty()){
             edtDuration.requestFocus();
             return false;
@@ -361,18 +242,21 @@ public class AddFragment extends Fragment {
 
     private void InsertData() {
 
+        Calendar calendar = Calendar.getInstance();
+
         String modelName = Objects.requireNonNull(edtModel.getText()).toString();
         String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
-        String time = Objects.requireNonNull(edtEntered.getText()).toString();
+        String time = (calendar.get(Calendar.HOUR_OF_DAY)) + ":" + calendar.get(Calendar.MINUTE);
         String duration = Objects.requireNonNull(edtDuration.getText()).toString();
         String vehicle = vehicleType.getSelectedItem().toString();
-        int id = MainActivity.vehicleList.size()+1;
+//        int id = MainActivity.vehicleList.size()+1;
+        String id =edtPlaque.getText().toString();
 
         Vehicles vehicles = new Vehicles(modelName,plaque,time,duration,vehicle,id);
 
 
 
-            databaseReference.child("vehicles").child(String.valueOf(id)).setValue(vehicles)
+            databaseReference.child("vehicles").child((id)).setValue(vehicles)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -393,6 +277,9 @@ public class AddFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_add,container,false);
+
+
+
 
 
     }
