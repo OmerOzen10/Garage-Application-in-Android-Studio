@@ -62,7 +62,7 @@
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/black"
         app:counterEnabled="true"
-        app:counterMaxLength="11"
+        app:counterMaxLength="9"
         app:endIconMode="clear_text"
         app:endIconTint="@color/black"
         app:errorEnabled="true"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="@+id/layoutModel"
         app:layout_constraintStart_toStartOf="@+id/layoutModel"
         app:layout_constraintTop_toBottomOf="@+id/layoutModel"
-        app:placeholderText="ex: 00 ABC 0000"
+        app:placeholderText="ex: 00ABC0000"
         app:startIconDrawable="@drawable/ic_plaque">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -80,43 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_semibold"
-            android:maxLength="11"
+            android:maxLength="9"
             android:outlineAmbientShadowColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/layoutPlaque" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutDuration"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:hint="Duration"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:counterEnabled="true"
-        app:counterMaxLength="2"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:errorEnabled="true"
-        app:errorTextColor="#FF0000"
-        app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPlaque"
-        app:placeholderText="hour"
-        app:startIconDrawable="@drawable/ic_duration">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtDuration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:maxLength="2"
-            android:outlineAmbientShadowColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/layoutDuration" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -131,9 +97,9 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutDuration">
+        app:layout_constraintEnd_toEndOf="@+id/vehicleType"
+        app:layout_constraintStart_toStartOf="@+id/vehicleType"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleType">
 
     </Button>
 
@@ -141,13 +107,13 @@
         android:id="@+id/vehicleType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/black"
         android:entries="@array/item_names"
         android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutDuration" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

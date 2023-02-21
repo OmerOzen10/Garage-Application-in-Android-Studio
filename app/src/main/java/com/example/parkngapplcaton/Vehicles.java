@@ -9,16 +9,27 @@ public class Vehicles {
     String vehicleType;
     String id;
 
+    int minFormat;
+
     public Vehicles(){}
 
 
-    public Vehicles(String modelName, String plaque, String time, String duration, String vehicleType, String id) {
+    public Vehicles(String modelName, String plaque, String time, String vehicleType, String id, int minFormat) {
         this.modelName = modelName;
         this.plaque = plaque;
         this.time = time;
-        this.duration = duration;
+//        this.duration = duration;
         this.vehicleType = vehicleType;
         this.id = id;
+        this.minFormat = minFormat;
+    }
+
+    public int getMinFormat() {
+        return minFormat;
+    }
+
+    public void setMinFormat(int minFormat) {
+        this.minFormat = minFormat;
     }
 
     public String getModelName() {
@@ -43,14 +54,6 @@ public class Vehicles {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     public String getVehicleType() {
