@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
@@ -45,6 +46,7 @@ public class AddFragment extends Fragment {
     public  final static String TAG = "AddFragment";
 
     DatabaseReference databaseReference;
+
 
 
 
@@ -188,26 +190,19 @@ public class AddFragment extends Fragment {
 
         int minFormat = (hourEntered * 60) + minuteEntered;
 
-//        double Price;
-//
-//        switch (vehicleType.getSelectedItem().toString()){
-//            case "Car" : Price = 0.2;break;
-//
-//        }
-
-
 
         String modelName = Objects.requireNonNull(edtModel.getText()).toString();
         String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
         @SuppressLint("DefaultLocale") String time = String.format("%d:%02d", hourEntered, minuteEntered);
         String vehicle = vehicleType.getSelectedItem().toString();
-        String id =edtPlaque.getText().toString();
+        int id = MainActivity.vehicleList.size()+1;
+
 
         Vehicles vehicles = new Vehicles(modelName,plaque,time,vehicle,id,minFormat);
 
 
 
-            databaseReference.child("vehicles").child((id)).setValue(vehicles)
+            databaseReference.child("vehicles").child(String.valueOf((id))).setValue(vehicles)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

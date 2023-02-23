@@ -56,13 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-
-
-
-
-
         Vehicles vehicles = vehiclesList.get(position);
-
         holder.modelName.setText(vehicles.getModelName());
         holder.plaque.setText(vehicles.getPlaque());
         holder.enteredTime.setText(vehicles.getTime());
@@ -75,42 +69,70 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             @Override
             public void onClick(View view) {
 
+
                 Calendar calendar = Calendar.getInstance();
 
                 int hourExit = calendar.get(Calendar.HOUR_OF_DAY);
                 int minuteExit = calendar.get(Calendar.MINUTE);
                 int minFormatExit = (hourExit * 60) + minuteExit;
 
-                int fee = minFormatExit - vehiclesList.get(position).getMinFormat();
+                int totalTime = minFormatExit - vehiclesList.get(position).getMinFormat();
 
                 int durationMinute;
-                int durationHour = (int)(fee/60);
+                int durationHour = (int)(totalTime/60);
 
                 if (durationHour == 0) {
-                    durationMinute = fee;
+                    durationMinute = totalTime;
                 }else {
-                    durationMinute = fee%(durationHour * 60);
+                    durationMinute = totalTime%(durationHour * 60);
                 }
+
+                Car car = new Car();
 
 
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                        .setTitle("Delete Vehicle")
-                        .setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" +
-                                "\nThe fee is " + fee )
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        .setTitle("Delete Vehicle");
+//                        .setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" +
+//                                "\nThe fee is ");
+                if (holder.vehicleType.getText().toString().equals("Car")){
+                    if (totalTime > 0 && totalTime <= 30){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2);
+                    } else if (totalTime > 30 && totalTime <= 60){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 2);
+                    } else if (totalTime > 60 && totalTime <= 120){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 3);
+                    } else if (totalTime > 120) {
+                        int additionalTime = totalTime - 120;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
+                        double totalFee = car.priceCar0to2 * 3 + additionalFee;
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee);
+                    }
+                }
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                Log.d(TAG, "before: " + vehiclesList.size());
+
+                                // SAKIN AYNI APTALLIGI TEKRAR YAPMA 2 SAATIN COP OLDU //
+
+
+//                                vehiclesList.remove(position);
+//                                notifyItemRemoved(position);
+
+
+                                String key = String.valueOf(vehiclesList.get(position).getId());
                                 vehiclesList.remove(position);
                                 notifyItemRemoved(position);
-                                String key = String.valueOf(vehiclesList.get(position).getId());
                                 mDatabaseRef.child(key).removeValue();
                                 notifyDataSetChanged();
+
                             }
                         });
                 builder.show();
-                Log.d(TAG, "sum:  " +fee);
+                Log.d(TAG, "after: " + vehiclesList.size());
             }
         });
     }
