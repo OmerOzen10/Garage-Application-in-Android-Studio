@@ -98,16 +98,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 //                                "\nThe fee is ");
                 if (holder.vehicleType.getText().toString().equals("Car")){
                     if (totalTime > 0 && totalTime <= 30){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2);
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 + " Euro");
                     } else if (totalTime > 30 && totalTime <= 60){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 2);
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 2 + " Euro");
                     } else if (totalTime > 60 && totalTime <= 120){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 3);
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 3 + " Euro");
                     } else if (totalTime > 120) {
                         int additionalTime = totalTime - 120;
                         double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
                         double totalFee = car.priceCar0to2 * 3 + additionalFee;
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee);
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
                     }
                 }
 
