@@ -1,12 +1,24 @@
 package com.example.parkngapplcaton;
 
+import java.time.LocalDate;
+
 public class Car extends Vehicles{
 
-    double priceCar0to2 = 1;
+    double priceCar0to2 = 0.7;
 //    double priceCar0to4 = 0.09;
 //    double priceCar0to6 = 0.08;
 //    double priceCar0to24 = 0.07;
 
+
+    @Override
+    public String getDate() {
+        return super.getDate();
+    }
+
+    @Override
+    public void setDate(String date) {
+        super.setDate(date);
+    }
 
     @Override
     public String getModelName() {

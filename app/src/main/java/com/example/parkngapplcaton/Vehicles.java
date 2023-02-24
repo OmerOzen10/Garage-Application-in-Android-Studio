@@ -1,5 +1,7 @@
 package com.example.parkngapplcaton;
 
+import java.time.LocalDate;
+
 public class Vehicles {
 
     String modelName;
@@ -9,16 +11,27 @@ public class Vehicles {
     int id;
     int minFormat;
 
+    String date;
+
     public Vehicles(){}
 
 
-    public Vehicles(String modelName, String plaque, String time, String vehicleType, int id, int minFormat) {
+    public Vehicles(String modelName, String plaque, String time, String vehicleType, int id, int minFormat, String date) {
         this.modelName = modelName;
         this.plaque = plaque;
         this.time = time;
         this.vehicleType = vehicleType;
         this.id = id;
         this.minFormat = minFormat;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getMinFormat() {

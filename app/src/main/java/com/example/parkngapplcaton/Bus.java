@@ -1,12 +1,23 @@
 package com.example.parkngapplcaton;
 
+import java.time.LocalDate;
+
 public class Bus extends Vehicles{
 
-    double priceBus0to2 = 0.13;
-    double priceBus0to4 = 0.12;
-    double priceBus0to6 = 0.11;
-    double priceBus0to24 = 0.10;
+    double priceBus0to2 = 0.9;
+//    double priceBus0to4 = 0.12;
+//    double priceBus0to6 = 0.11;
+//    double priceBus0to24 = 0.10;
 
+    @Override
+    public String getDate() {
+        return super.getDate();
+    }
+
+    @Override
+    public void setDate(String date) {
+        super.setDate(date);
+    }
 
     @Override
     public int getMinFormat() {

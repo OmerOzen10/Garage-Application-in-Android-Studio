@@ -88,6 +88,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 }
 
                 Car car = new Car();
+                Truck truck = new Truck();
+                Bus bus = new Bus();
+                Taxi taxi = new Taxi();
+                Motorcycle motor = new Motorcycle();
 
 
 
@@ -105,8 +109,72 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                         builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 3 + " Euro");
                     } else if (totalTime > 120) {
                         int additionalTime = totalTime - 120;
-                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
                         double totalFee = car.priceCar0to2 * 3 + additionalFee;
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+                    }
+                }
+
+
+                 if (holder.vehicleType.getText().toString().equals("Truck")) {
+                    if (totalTime > 0 && totalTime <=30){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 + " Euro");
+                    } else if (totalTime > 30 && totalTime <= 60){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 * 2 + " Euro");
+                    } else if (totalTime > 60 && totalTime <= 120){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 * 3 + " Euro");
+                    } else if (totalTime > 120) {
+                        int additionalTime = totalTime - 120;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
+                        double totalFee = truck.priceTruck0to2 * 3 + additionalFee;
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+                    }
+                }
+
+
+                 if (holder.vehicleType.getText().toString().equals("Bus")) {
+                    if (totalTime > 0 && totalTime <=30){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 + " Euro");
+                    } else if (totalTime > 30 && totalTime <= 60){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 * 2 + " Euro");
+                    } else if (totalTime > 60 && totalTime <= 120){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 * 3 + " Euro");
+                    } else if (totalTime > 120) {
+                        int additionalTime = totalTime - 120;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
+                        double totalFee = bus.priceBus0to2 * 3 + additionalFee;
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+                    }
+
+                }
+
+
+                 if (holder.vehicleType.getText().toString().equals("Taxi")) {
+                    if (totalTime > 0 && totalTime <=30){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 + " Euro");
+                    } else if (totalTime > 30 && totalTime <= 60){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 * 2 + " Euro");
+                    } else if (totalTime > 60 && totalTime <= 120){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 * 3 + " Euro");
+                    } else if (totalTime > 120) {
+                        int additionalTime = totalTime - 120;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
+                        double totalFee = taxi.priceTaxi0to2 * 3 + additionalFee;
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+                    }
+                }
+
+                 if (holder.vehicleType.getText().toString().equals("Motorcycle")) {
+                    if (totalTime > 0 && totalTime <=30){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 + " Euro");
+                    } else if (totalTime > 30 && totalTime <= 60){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 * 2 + " Euro");
+                    } else if (totalTime > 60 && totalTime <= 120){
+                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 * 3 + " Euro");
+                    } else if (totalTime > 120) {
+                        int additionalTime = totalTime - 120;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.3;
+                        double totalFee = motor.priceMotorcycle0to2 * 3 + additionalFee;
                         builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
                     }
                 }

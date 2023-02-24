@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
@@ -195,10 +196,11 @@ public class AddFragment extends Fragment {
         String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
         @SuppressLint("DefaultLocale") String time = String.format("%d:%02d", hourEntered, minuteEntered);
         String vehicle = vehicleType.getSelectedItem().toString();
+        String date = String.valueOf(LocalDate.now());
         int id = MainActivity.vehicleList.size()+1;
 
 
-        Vehicles vehicles = new Vehicles(modelName,plaque,time,vehicle,id,minFormat);
+        Vehicles vehicles = new Vehicles(modelName,plaque,time,vehicle,id,minFormat,date);
 
 
 
@@ -207,7 +209,8 @@ public class AddFragment extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(getView().getContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(requireContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
+
                             }
 
 
