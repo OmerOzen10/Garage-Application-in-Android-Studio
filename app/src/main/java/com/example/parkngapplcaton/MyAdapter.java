@@ -21,6 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -70,22 +76,46 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             public void onClick(View view) {
 
 
-                Calendar calendar = Calendar.getInstance();
+//                Calendar calendar = Calendar.getInstance();
+//
+//                int hourExit = calendar.get(Calendar.HOUR_OF_DAY);
+//                int minuteExit = calendar.get(Calendar.MINUTE);
+//                int minFormatExit = (hourExit * 60) + minuteExit;
+//
+//                int totalTime = minFormatExit - vehiclesList.get(position).getMinFormat();
+//
+//                int durationMinute;
+//                int durationHour = (int)(totalTime/60);
+//
+//                if (durationHour == 0) {
+//                    durationMinute = totalTime;
+//                }else {
+//                    durationMinute = totalTime%(durationHour * 60);
+//                }
 
-                int hourExit = calendar.get(Calendar.HOUR_OF_DAY);
-                int minuteExit = calendar.get(Calendar.MINUTE);
-                int minFormatExit = (hourExit * 60) + minuteExit;
+                LocalDateTime dateExit = LocalDateTime.now();
 
-                int totalTime = minFormatExit - vehiclesList.get(position).getMinFormat();
+                String dateEntry = vehiclesList.get(position).date;
 
-                int durationMinute;
-                int durationHour = (int)(totalTime/60);
+                LocalDateTime date1 = LocalDateTime.parse(dateEntry, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
-                if (durationHour == 0) {
-                    durationMinute = totalTime;
-                }else {
-                    durationMinute = totalTime%(durationHour * 60);
-                }
+                Duration duration = Duration.between(date1,dateExit);
+                int hour = (int) duration.toHours();
+                int minutes = (int) duration.toMinutes();
+                int totalFormat = (hour * 60) + minutes;
+
+                Log.d(TAG, "totalFormat:  " + dateExit);
+
+
+
+
+
+
+
+
+
+
+
 
                 Car car = new Car();
                 Truck truck = new Truck();
@@ -100,89 +130,110 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                         .setTitle("Delete Vehicle");
 //                        .setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" +
 //                                "\nThe fee is ");
+
                 if (holder.vehicleType.getText().toString().equals("Car")){
-                    if (totalTime > 0 && totalTime <= 30){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 + " Euro");
-                    } else if (totalTime > 30 && totalTime <= 60){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 2 + " Euro");
-                    } else if (totalTime > 60 && totalTime <= 120){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 3 + " Euro");
-                    } else if (totalTime > 120) {
-                        int additionalTime = totalTime - 120;
+                    if (totalFormat > 0 && totalFormat <= 30){
+                        builder.setMessage("\nThe fee is " + car.priceCar0to2 + " Euro");
+                    } else if (totalFormat > 30 && totalFormat <= 60){
+                        builder.setMessage("\nThe fee is " + car.priceCar0to2 * 2 + " Euro");
+                    } else if (totalFormat > 60 && totalFormat <= 120){
+                        builder.setMessage("\nThe fee is " + car.priceCar0to2 * 3 + " Euro");
+                    } else if (totalFormat > 120) {
+                        int additionalTime = totalFormat - 120;
                         double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
                         double totalFee = car.priceCar0to2 * 3 + additionalFee;
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+                        builder.setMessage("\nThe fee is " + totalFee + " Euro");
                     }
                 }
 
 
-                 if (holder.vehicleType.getText().toString().equals("Truck")) {
-                    if (totalTime > 0 && totalTime <=30){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 + " Euro");
-                    } else if (totalTime > 30 && totalTime <= 60){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 * 2 + " Euro");
-                    } else if (totalTime > 60 && totalTime <= 120){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 * 3 + " Euro");
-                    } else if (totalTime > 120) {
-                        int additionalTime = totalTime - 120;
-                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
-                        double totalFee = truck.priceTruck0to2 * 3 + additionalFee;
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
-                    }
-                }
 
 
-                 if (holder.vehicleType.getText().toString().equals("Bus")) {
-                    if (totalTime > 0 && totalTime <=30){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 + " Euro");
-                    } else if (totalTime > 30 && totalTime <= 60){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 * 2 + " Euro");
-                    } else if (totalTime > 60 && totalTime <= 120){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 * 3 + " Euro");
-                    } else if (totalTime > 120) {
-                        int additionalTime = totalTime - 120;
-                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
-                        double totalFee = bus.priceBus0to2 * 3 + additionalFee;
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
-                    }
+//                if (holder.vehicleType.getText().toString().equals("Car")){
+//                    if (totalTime > 0 && totalTime <= 30){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 + " Euro");
+//                    } else if (totalTime > 30 && totalTime <= 60){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 2 + " Euro");
+//                    } else if (totalTime > 60 && totalTime <= 120){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + car.priceCar0to2 * 3 + " Euro");
+//                    } else if (totalTime > 120) {
+//                        int additionalTime = totalTime - 120;
+//                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
+//                        double totalFee = car.priceCar0to2 * 3 + additionalFee;
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+//                    }
+//                }
 
-                }
 
-
-                 if (holder.vehicleType.getText().toString().equals("Taxi")) {
-                    if (totalTime > 0 && totalTime <=30){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 + " Euro");
-                    } else if (totalTime > 30 && totalTime <= 60){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 * 2 + " Euro");
-                    } else if (totalTime > 60 && totalTime <= 120){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 * 3 + " Euro");
-                    } else if (totalTime > 120) {
-                        int additionalTime = totalTime - 120;
-                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
-                        double totalFee = taxi.priceTaxi0to2 * 3 + additionalFee;
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
-                    }
-                }
-
-                 if (holder.vehicleType.getText().toString().equals("Motorcycle")) {
-                    if (totalTime > 0 && totalTime <=30){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 + " Euro");
-                    } else if (totalTime > 30 && totalTime <= 60){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 * 2 + " Euro");
-                    } else if (totalTime > 60 && totalTime <= 120){
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 * 3 + " Euro");
-                    } else if (totalTime > 120) {
-                        int additionalTime = totalTime - 120;
-                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.3;
-                        double totalFee = motor.priceMotorcycle0to2 * 3 + additionalFee;
-                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
-                    }
-                }
+//                 if (holder.vehicleType.getText().toString().equals("Truck")) {
+//                    if (totalTime > 0 && totalTime <=30){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 + " Euro");
+//                    } else if (totalTime > 30 && totalTime <= 60){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 * 2 + " Euro");
+//                    } else if (totalTime > 60 && totalTime <= 120){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + truck.priceTruck0to2 * 3 + " Euro");
+//                    } else if (totalTime > 120) {
+//                        int additionalTime = totalTime - 120;
+//                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
+//                        double totalFee = truck.priceTruck0to2 * 3 + additionalFee;
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+//                    }
+//                }
+//
+//
+//                 if (holder.vehicleType.getText().toString().equals("Bus")) {
+//                    if (totalTime > 0 && totalTime <=30){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 + " Euro");
+//                    } else if (totalTime > 30 && totalTime <= 60){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 * 2 + " Euro");
+//                    } else if (totalTime > 60 && totalTime <= 120){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + bus.priceBus0to2 * 3 + " Euro");
+//                    } else if (totalTime > 120) {
+//                        int additionalTime = totalTime - 120;
+//                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
+//                        double totalFee = bus.priceBus0to2 * 3 + additionalFee;
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+//                    }
+//
+//                }
+//
+//
+//                 if (holder.vehicleType.getText().toString().equals("Taxi")) {
+//                    if (totalTime > 0 && totalTime <=30){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 + " Euro");
+//                    } else if (totalTime > 30 && totalTime <= 60){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 * 2 + " Euro");
+//                    } else if (totalTime > 60 && totalTime <= 120){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + taxi.priceTaxi0to2 * 3 + " Euro");
+//                    } else if (totalTime > 120) {
+//                        int additionalTime = totalTime - 120;
+//                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
+//                        double totalFee = taxi.priceTaxi0to2 * 3 + additionalFee;
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+//                    }
+//                }
+//
+//                 if (holder.vehicleType.getText().toString().equals("Motorcycle")) {
+//                    if (totalTime > 0 && totalTime <=30){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 + " Euro");
+//                    } else if (totalTime > 30 && totalTime <= 60){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 * 2 + " Euro");
+//                    } else if (totalTime > 60 && totalTime <= 120){
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + motor.priceMotorcycle0to2 * 3 + " Euro");
+//                    } else if (totalTime > 120) {
+//                        int additionalTime = totalTime - 120;
+//                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.3;
+//                        double totalFee = motor.priceMotorcycle0to2 * 3 + additionalFee;
+//                        builder.setMessage("The duration was " + durationHour + " Hours and " + durationMinute + " Minutes" + "\nThe fee is " + totalFee + " Euro");
+//                    }
+//                }
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.d(TAG, "before: " + vehiclesList.size());
+
+
 
                                 // SAKIN AYNI APTALLIGI TEKRAR YAPMA 2 SAATIN COP OLDU //
 

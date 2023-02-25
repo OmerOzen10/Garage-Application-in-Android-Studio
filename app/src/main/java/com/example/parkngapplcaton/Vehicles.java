@@ -1,6 +1,8 @@
 package com.example.parkngapplcaton;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Vehicles {
 
@@ -10,7 +12,6 @@ public class Vehicles {
     String vehicleType;
     int id;
     int minFormat;
-
     String date;
 
     public Vehicles(){}
@@ -26,11 +27,13 @@ public class Vehicles {
         this.date = date;
     }
 
+
+
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(String  date) {
         this.date = date;
     }
 

@@ -26,11 +26,13 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -188,15 +190,13 @@ public class AddFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         int hourEntered = calendar.get(Calendar.HOUR_OF_DAY);
         int minuteEntered = calendar.get(Calendar.MINUTE);
-
         int minFormat = (hourEntered * 60) + minuteEntered;
-
 
         String modelName = Objects.requireNonNull(edtModel.getText()).toString();
         String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
         @SuppressLint("DefaultLocale") String time = String.format("%d:%02d", hourEntered, minuteEntered);
         String vehicle = vehicleType.getSelectedItem().toString();
-        String date = String.valueOf(LocalDate.now());
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         int id = MainActivity.vehicleList.size()+1;
 
 
