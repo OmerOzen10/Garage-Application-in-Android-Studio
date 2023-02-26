@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class Car extends Vehicles{
 
-    double priceCar0to2 = 0.7;
-//    double priceCar0to4 = 0.09;
-//    double priceCar0to6 = 0.08;
-//    double priceCar0to24 = 0.07;
+    int priceCar1 = 2;
+//    double priceCar2 = 2;
+//    double priceCar3= 3;
+//    double priceCar3 = 3;
 
 
     @Override

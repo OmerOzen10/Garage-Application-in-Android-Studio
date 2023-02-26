@@ -133,15 +133,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
                 if (holder.vehicleType.getText().toString().equals("Car")){
                     if (totalFormat > 0 && totalFormat <= 30){
-                        builder.setMessage("\nThe fee is " + car.priceCar0to2 + " Euro");
+                        builder.setMessage("\nThe fee is " + car.priceCar1 + " Euro");
+
                     } else if (totalFormat > 30 && totalFormat <= 60){
-                        builder.setMessage("\nThe fee is " + car.priceCar0to2 * 2 + " Euro");
+                        builder.setMessage("\nThe fee is " + car.priceCar1 * 2 + " Euro");
+
                     } else if (totalFormat > 60 && totalFormat <= 120){
-                        builder.setMessage("\nThe fee is " + car.priceCar0to2 * 3 + " Euro");
+                        builder.setMessage("\nThe fee is " + car.priceCar1 * 3 + " Euro");
+
                     } else if (totalFormat > 120) {
                         int additionalTime = totalFormat - 120;
-                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.4;
-                        double totalFee = car.priceCar0to2 * 3 + additionalFee;
+                        double additionalFee = Math.ceil(additionalTime / 30.0) * 0.5;
+                        double totalFee = (car.priceCar1 * 3) + additionalFee;
                         builder.setMessage("\nThe fee is " + totalFee + " Euro");
                     }
                 }
