@@ -2,118 +2,138 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ABEACB">
+    android:background="#7C7979">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtParking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="PARKING"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutModel"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="Model Name"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:counterEnabled="true"
-        app:counterMaxLength="27"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:errorEnabled="true"
-        app:errorTextColor="#FF0000"
-        app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtParking"
-        app:startIconDrawable="@drawable/edit1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtModel"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semibold"
-            android:maxLength="27"
-            android:outlineAmbientShadowColor="@color/black" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtParking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="PARKING"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutModel"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:hint="Model Name"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:counterEnabled="true"
+                app:counterMaxLength="27"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black"
+                app:errorEnabled="true"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtParking"
+                app:startIconDrawable="@drawable/edit1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:maxLength="27"
+                    android:outlineAmbientShadowColor="@color/black" />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutPlaque"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:hint="Plaque"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:counterEnabled="true"
-        app:counterMaxLength="9"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:errorEnabled="true"
-        app:errorTextColor="#FF0000"
-        app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/layoutModel"
-        app:layout_constraintStart_toStartOf="@+id/layoutModel"
-        app:layout_constraintTop_toBottomOf="@+id/layoutModel"
-        app:placeholderText="ex: 00ABC0000"
-        app:startIconDrawable="@drawable/ic_plaque">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPlaque"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Plaque"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black"
+                app:errorEnabled="true"
+                app:errorTextColor="#FF0000"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/layoutModel"
+                app:layout_constraintStart_toStartOf="@+id/layoutModel"
+                app:layout_constraintTop_toBottomOf="@+id/layoutModel"
+                app:placeholderText="ex: 00ABC0000"
+                app:startIconDrawable="@drawable/ic_plaque">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtPlaque"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:maxLength="9"
-            android:outlineAmbientShadowColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/layoutPlaque" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPlaque"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:maxLength="9"
+                    android:outlineAmbientShadowColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@+id/layoutPlaque" />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/poppins_bold"
-        android:text="ADD"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/vehicleType"
-        app:layout_constraintStart_toStartOf="@+id/vehicleType"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleType">
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="100dp"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:text="ADD"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/vehicleType"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="@+id/vehicleType"
+                app:layout_constraintTop_toBottomOf="@+id/vehicleType"
+                app:layout_constraintVertical_bias="1.0">
 
-    </Button>
+            </Button>
 
-    <Spinner
-        android:id="@+id/vehicleType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/black"
-        android:entries="@array/item_names"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
+            <Spinner
+                android:id="@+id/vehicleType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:backgroundTint="@color/black"
+                android:entries="@array/item_names"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

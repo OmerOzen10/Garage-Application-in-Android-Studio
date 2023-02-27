@@ -6,7 +6,10 @@ import java.util.Date;
 
 public class Taxi extends Vehicles{
 
-    double priceTaxi0to2 = 0.8;
+    double priceTaxi1 = 1.0;
+    double priceTaxi2 = 2.0;
+    double priceTaxi3 = 3.0;
+    double priceTaxi4 = 3.0;
 //    double priceTaxi0to4 = 0.08;
 //    double priceTaxi0to6 = 0.07;
 //    double priceTaxi0to24 = 0.06;

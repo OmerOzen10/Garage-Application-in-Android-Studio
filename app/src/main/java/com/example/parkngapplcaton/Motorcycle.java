@@ -6,7 +6,10 @@ import java.util.Date;
 
 public class Motorcycle extends Vehicles{
 
-    double priceMotorcycle0to2 = 0.6;
+    double priceMotorcycle1 = 0.5;
+    double priceMotorcycle2 = 1.0;
+    double priceMotorcycle3 = 1.5;
+    double priceMotorcycle4 = 1.5;
 //    double priceMotorcycle0to4 = 0.05;
 //    double priceMotorcycle0to6 = 0.04;
 //    double priceMotorcycle0to24 = 0.03;

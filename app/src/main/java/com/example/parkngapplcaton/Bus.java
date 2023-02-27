@@ -6,7 +6,12 @@ import java.util.Date;
 
 public class Bus extends Vehicles{
 
-    double priceBus0to2 = 0.9;
+    double priceBus1 = 1.25;
+    double priceBus2 = 2.50;
+    double priceBus3 = 3.75;
+    double priceBus4 = 3.75;
+
+
 //    double priceBus0to4 = 0.12;
 //    double priceBus0to6 = 0.11;
 //    double priceBus0to24 = 0.10;

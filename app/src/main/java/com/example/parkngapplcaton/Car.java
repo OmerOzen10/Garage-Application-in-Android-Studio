@@ -6,8 +6,11 @@ import java.util.Date;
 
 public class Car extends Vehicles{
 
-    int priceCar1 = 2;
-//    double priceCar2 = 2;
+    double priceCar1 = 1.0;
+    double priceCar2 = 2.0;
+    double priceCar3 = 3.0;
+    double priceCar4 = 3.0;
+ //    double priceCar2 = 2;
 //    double priceCar3= 3;
 //    double priceCar3 = 3;
 
