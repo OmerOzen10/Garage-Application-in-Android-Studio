@@ -1,29 +1,41 @@
 package com.example.parkngapplcaton;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-
 public class Vehicles {
 
     String modelName;
     String plaque;
-    String time;
     String vehicleType;
     int id;
-    int minFormat;
     String date;
+
+    String premium;
 
     public Vehicles(){}
 
-
-    public Vehicles(String modelName, String plaque, String time, String vehicleType, int id, int minFormat, String date) {
+    public Vehicles(String modelName, String plaque, String vehicleType, int id, String date, String premium) {
         this.modelName = modelName;
         this.plaque = plaque;
-        this.time = time;
         this.vehicleType = vehicleType;
         this.id = id;
-        this.minFormat = minFormat;
+        this.date = date;
+        this.premium = premium;
+    }
+
+//    public void Vehicles1(String modelName, String plaque, String vehicleType, int id, String date, String premium) {
+//        this.modelName = modelName;
+//        this.plaque = plaque;
+//        this.vehicleType = vehicleType;
+//        this.id = id;
+//        this.date = date;
+//        this.premium = premium;
+//    }
+
+
+    public Vehicles(String modelName, String plaque, String vehicleType, int id, String date) {
+        this.modelName = modelName;
+        this.plaque = plaque;
+        this.vehicleType = vehicleType;
+        this.id = id;
         this.date = date;
     }
 
@@ -35,14 +47,6 @@ public class Vehicles {
 
     public void setDate(String  date) {
         this.date = date;
-    }
-
-    public int getMinFormat() {
-        return minFormat;
-    }
-
-    public void setMinFormat(int minFormat) {
-        this.minFormat = minFormat;
     }
 
     public String getModelName() {
@@ -59,14 +63,6 @@ public class Vehicles {
 
     public void setPlaque(String plaque) {
         this.plaque = plaque;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getVehicleType() {
@@ -90,7 +86,6 @@ public class Vehicles {
         return "Vehicles{" +
                 "modelName='" + modelName + '\'' +
                 ", plaque='" + plaque + '\'' +
-                ", time='" + time + '\'' +
                 ", vehicleType='" + vehicleType + '\'' +
                 '}';
     }

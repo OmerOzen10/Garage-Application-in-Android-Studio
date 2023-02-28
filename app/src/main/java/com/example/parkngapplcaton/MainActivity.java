@@ -27,6 +27,7 @@ import java.util.Collections;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Vehicles> vehicleList;
+    public static ArrayList<Vehicles> vehicleListPremium;
     public static final String TAG = "MainActivity";
 
     public static DatabaseReference databaseReference;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame,new InfoFragment()).addToBackStack(null).commit();
 
         vehicleList = new ArrayList<>();
+
+        vehicleListPremium = new ArrayList<>();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(navListener);

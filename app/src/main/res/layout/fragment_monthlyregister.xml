@@ -5,8 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7C7979">
-
+    android:background="#A5B19A">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,20 +14,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/btnPremium"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="50dp"
-                android:backgroundTint="#4c3f8a"
-                android:fontFamily="@font/poppins_bold"
-                android:text="MONTHLY REGISTRATION"
-                android:textColor="@color/white"
-                android:textSize="15sp"
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_back"
+                android:src="@drawable/ic_back"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/addButton"
-                app:layout_constraintStart_toStartOf="@+id/addButton"
-                app:layout_constraintTop_toBottomOf="@+id/addButton" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.041"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.025" />
 
             <TextView
                 android:id="@+id/txtParking"
@@ -36,12 +33,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="PARKING"
+                android:text="MONTHLY"
                 android:textColor="#000000"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtParking2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="REGISTRATION"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtParking" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutModel"
@@ -61,7 +70,7 @@
                 app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtParking"
+                app:layout_constraintTop_toBottomOf="@+id/txtParking2"
                 app:startIconDrawable="@drawable/edit1">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -114,7 +123,7 @@
                 android:id="@+id/addButton"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="45dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_bold"
                 android:text="ADD"
@@ -123,7 +132,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/vehicleType"
                 app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="@+id/vehicleType"
-                app:layout_constraintTop_toBottomOf="@+id/vehicleType">
+                app:layout_constraintTop_toBottomOf="@+id/chooseRegis">
 
             </Button>
 
@@ -139,11 +148,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
 
+            <Spinner
+                android:id="@+id/chooseRegis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:backgroundTint="@color/black"
+                android:entries="@array/item_names_premium"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/vehicleType"
+                app:layout_constraintStart_toStartOf="@+id/vehicleType"
+                app:layout_constraintTop_toBottomOf="@+id/vehicleType" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+
 
 
 

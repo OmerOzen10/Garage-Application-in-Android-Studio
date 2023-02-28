@@ -46,16 +46,6 @@ public class Car extends Vehicles{
     }
 
     @Override
-    public String getTime() {
-        return super.getTime();
-    }
-
-    @Override
-    public void setTime(String time) {
-        super.setTime(time);
-    }
-
-    @Override
     public int getId() {
         return super.getId();
     }
@@ -73,15 +63,5 @@ public class Car extends Vehicles{
     @Override
     public void setVehicleType(String vehicleType) {
         super.setVehicleType(vehicleType);
-    }
-
-    @Override
-    public int getMinFormat() {
-        return super.getMinFormat();
-    }
-
-    @Override
-    public void setMinFormat(int minFormat) {
-        super.setMinFormat(minFormat);
     }
 }

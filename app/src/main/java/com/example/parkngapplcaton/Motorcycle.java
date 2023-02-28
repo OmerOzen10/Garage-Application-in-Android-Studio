@@ -25,16 +25,6 @@ public class Motorcycle extends Vehicles{
     }
 
     @Override
-    public int getMinFormat() {
-        return super.getMinFormat();
-    }
-
-    @Override
-    public void setMinFormat(int minFormat) {
-        super.setMinFormat(minFormat);
-    }
-
-    @Override
     public String getModelName() {
         return super.getModelName();
     }
@@ -52,16 +42,6 @@ public class Motorcycle extends Vehicles{
     @Override
     public void setPlaque(String plaque) {
         super.setPlaque(plaque);
-    }
-
-    @Override
-    public String getTime() {
-        return super.getTime();
-    }
-
-    @Override
-    public void setTime(String time) {
-        super.setTime(time);
     }
 
     @Override

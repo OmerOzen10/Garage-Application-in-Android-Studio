@@ -1,22 +1,20 @@
 package com.example.parkngapplcaton;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -28,35 +26,37 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.Time;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
+public class MonthRegisterFragment extends Fragment {
 
+    TextInputLayout layoutModel, layoutPlaque;
 
+    TextInputEditText edtModel, edtPlaque;
 
-public class AddFragment extends Fragment {
+    Spinner vehicleType, chooseRegis;
 
-    TextInputLayout layoutModel,layoutPlaque;
+    Button addButton;
 
-    TextInputEditText edtModel,edtPlaque;
-
-    Spinner vehicleType;
-
-    Button addButton, btnPremium;
-
-    public  final static String TAG = "AddFragment";
+    ImageButton back;
 
     DatabaseReference databaseReference;
 
+    public MonthRegisterFragment() {
+        // Required empty public constructor
+    }
 
-
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_monthlyregister, container, false);
+        // Add your code to customize the layout and behavior of the fragment
+        return view;
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -67,10 +67,9 @@ public class AddFragment extends Fragment {
         edtPlaque = view.findViewById(R.id.edtPlaque);
         vehicleType = view.findViewById(R.id.vehicleType);
         addButton = view.findViewById(R.id.addButton);
-        btnPremium = view.findViewById(R.id.btnPremium);
-
+        chooseRegis = view.findViewById(R.id.chooseRegis);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
+        back = view.findViewById(R.id.back);
 
         edtModel.addTextChangedListener(new TextWatcher() {
             @Override
@@ -146,10 +145,10 @@ public class AddFragment extends Fragment {
 
             if (Correction()){
 
-                    InsertData();
+                InsertData();
 
-                    edtPlaque.getText().clear();
-                    edtModel.getText().clear();
+                edtPlaque.getText().clear();
+                edtModel.getText().clear();
 
 
             }else {
@@ -158,20 +157,47 @@ public class AddFragment extends Fragment {
 
         });
 
-        btnPremium.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MonthRegisterFragment monthRegisterFragment = new MonthRegisterFragment(); // create new instance of MonthRegisterFragment
+                AddFragment addFragment = new AddFragment(); // create new instance of MonthRegisterFragment
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 // get the FragmentManager
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction(); // start the FragmentTransaction
-                fragmentTransaction.replace(R.id.frame, monthRegisterFragment); // replace the current fragment with MonthRegisterFragment
+                fragmentTransaction.replace(R.id.frame, addFragment); // replace the current fragment with MonthRegisterFragment
                 fragmentTransaction.addToBackStack(null); // add to back stack to allow user to navigate back to previous fragment
                 fragmentTransaction.commit(); // commit the FragmentTransaction
             }
         });
 
 
+    }
+
+    private void InsertData() {
+        String modelName = Objects.requireNonNull(edtModel.getText()).toString();
+        String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
+        String vehicle = vehicleType.getSelectedItem().toString();
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        String premium = chooseRegis.getSelectedItem().toString();
+        int id = MainActivity.vehicleListPremium.size()+1;
+
+
+        Vehicles vehicles = new Vehicles(modelName,plaque,vehicle,id,date,premium);
+
+
+
+        databaseReference.child("Premiums").child(String.valueOf((id))).setValue(vehicles)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(requireContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+                    }
+                });
 
 
 
@@ -180,10 +206,10 @@ public class AddFragment extends Fragment {
 
     private boolean Correction(){
 
-       if (edtPlaque.getText().toString().contains(" ")){
-           edtPlaque.requestFocus();
-           return false;
-       }
+        if (edtPlaque.getText().toString().contains(" ")){
+            edtPlaque.requestFocus();
+            return false;
+        }
 
         if (edtModel.getText().toString().isEmpty()){
             layoutModel.setError("Required");
@@ -205,49 +231,6 @@ public class AddFragment extends Fragment {
         }
         return true;
 
-        }
-
-    private void InsertData() {
-
-        String modelName = Objects.requireNonNull(edtModel.getText()).toString();
-        String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
-        String vehicle = vehicleType.getSelectedItem().toString();
-        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-        int id = MainActivity.vehicleList.size()+1;
-
-
-        Vehicles vehicles = new Vehicles(modelName,plaque,vehicle,id,date);
-
-
-
-            databaseReference.child("vehicles").child(String.valueOf((id))).setValue(vehicles)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(requireContext(), "Added Successfully!", Toast.LENGTH_SHORT).show();
-
-                            }
-
-
-                        }
-                    });
-
-
-
-
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_add,container,false);
-
-
-
-
-
-
-
     }
 }
+

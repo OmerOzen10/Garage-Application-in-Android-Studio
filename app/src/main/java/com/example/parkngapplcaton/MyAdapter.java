@@ -65,7 +65,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         Vehicles vehicles = vehiclesList.get(position);
         holder.modelName.setText(vehicles.getModelName());
         holder.plaque.setText(vehicles.getPlaque());
-        holder.enteredTime.setText(vehicles.getTime());
+        holder.enteredTime.setText(vehicles.getDate());
         holder.vehicleType.setText(vehicles.getVehicleType());
 
 
@@ -122,7 +122,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
                 if (holder.vehicleType.getText().toString().equals("Car")){
                     if (totalTime > 0 && totalTime <= 30){
-                        builder.setMessage(totalDuration + "The duration was: " + hours + "\nThe fee is " + car.priceCar1 + " Euro");
+                        builder.setMessage(totalDuration + "\nThe fee is " + car.priceCar1 + " Euro");
                     } else if (totalTime > 30 && totalTime <= 60){
                        builder.setMessage(totalDuration + "\nThe fee is " + car.priceCar2 + " Euro");
                    } else if (totalTime > 60 && totalTime <= 120){
