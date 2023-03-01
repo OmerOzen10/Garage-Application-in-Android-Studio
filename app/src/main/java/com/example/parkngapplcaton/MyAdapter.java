@@ -36,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     Context context;
 
+    // OldNovel was here
     private DatabaseReference mDatabaseRef;
 
     ArrayList<Vehicles> vehiclesList;
