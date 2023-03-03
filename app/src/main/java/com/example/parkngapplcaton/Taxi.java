@@ -15,6 +15,8 @@ public class Taxi extends Vehicles{
 //    double priceTaxi0to24 = 0.06;
 
 
+
+
     @Override
     public String getDate() {
         return super.getDate();

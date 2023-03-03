@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
 
 
+
     public MyAdapter(Context context, ArrayList<Vehicles> vehiclesList, DatabaseReference databaseRef) {
         this.context = context;
         this.vehiclesList = vehiclesList;
@@ -71,32 +73,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
 
 
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                                  // THIS IS FOR HH:mm FORMAT//
-
-
-//                Calendar calendar = Calendar.getInstance();
-//
-//                int hourExit = calendar.get(Calendar.HOUR_OF_DAY);
-//                int minuteExit = calendar.get(Calendar.MINUTE);
-//                int minFormatExit = (hourExit * 60) + minuteExit;
-//
-//                int totalTime = minFormatExit - vehiclesList.get(position).getMinFormat();
-//
-//                int durationMinute;
-//                int durationHour = (int)(totalTime/60);
-//
-//                if (durationHour == 0) {
-//                    durationMinute = totalTime;
-//                }else {
-//                    durationMinute = totalTime%(durationHour * 60);
-//                }
-//
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 LocalDateTime dateExit = LocalDateTime.now();
 
@@ -120,6 +99,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context)
                         .setTitle("Delete Vehicle");
+
+
+
 
                 if (holder.vehicleType.getText().toString().equals("Car")){
                     if (totalTime > 0 && totalTime <= 30){
@@ -241,6 +223,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         ConstraintLayout layout;
         TextView modelName,plaque,enteredTime,vehicleType;
         ImageButton delete;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             modelName = itemView.findViewById(R.id.txtModel);
@@ -249,6 +232,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             vehicleType = itemView.findViewById(R.id.txtVehicleType);
             layout = itemView.findViewById(R.id.layoutOmer);
             delete = itemView.findViewById(R.id.delete);
+
         }
     }
 }

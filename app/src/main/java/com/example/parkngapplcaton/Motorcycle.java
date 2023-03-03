@@ -14,6 +14,9 @@ public class Motorcycle extends Vehicles{
 //    double priceMotorcycle0to6 = 0.04;
 //    double priceMotorcycle0to24 = 0.03;
 
+
+
+
     @Override
     public String getDate() {
         return super.getDate();

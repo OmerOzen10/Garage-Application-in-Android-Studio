@@ -22,6 +22,8 @@ public class SeeFragment extends Fragment {
     public static MyAdapter adapter;
     private DatabaseReference mDatabaseRef;
 
+
+
     public SeeFragment(DatabaseReference databaseRef) {
         mDatabaseRef = databaseRef;
     }

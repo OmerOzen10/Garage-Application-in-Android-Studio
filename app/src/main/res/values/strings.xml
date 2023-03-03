@@ -10,10 +10,13 @@
     </string-array>
 
     <string-array name="item_names_premium">
-        <item>1 Month = 250 € </item>
-        <item>3 Month = 450 € </item>
-        <item>6 Month = 750 € </item>
-        <item>12 Month = 1000 € </item>
-
+        <item>Select an item</item>
+        <item>1 Month = 250 €</item>
+        <item>3 Month = 450 €</item>
+        <item>6 Month = 750 €</item>
+        <item>12 Month = 1000 €</item>
     </string-array>
+
+
+
 </resources>

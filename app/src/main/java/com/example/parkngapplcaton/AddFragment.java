@@ -1,6 +1,7 @@
 package com.example.parkngapplcaton;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,8 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +27,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -47,9 +52,12 @@ public class AddFragment extends Fragment {
 
     TextInputEditText edtModel,edtPlaque;
 
-    Spinner vehicleType;
+    Spinner vehicleType,chooseRegis;
 
-    Button addButton, btnPremium;
+    Button addButton;
+
+
+    Switch premium;
 
     public  final static String TAG = "AddFragment";
 
@@ -67,7 +75,9 @@ public class AddFragment extends Fragment {
         edtPlaque = view.findViewById(R.id.edtPlaque);
         vehicleType = view.findViewById(R.id.vehicleType);
         addButton = view.findViewById(R.id.addButton);
-        btnPremium = view.findViewById(R.id.btnPremium);
+
+
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -158,18 +168,7 @@ public class AddFragment extends Fragment {
 
         });
 
-        btnPremium.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MonthRegisterFragment monthRegisterFragment = new MonthRegisterFragment(); // create new instance of MonthRegisterFragment
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                // get the FragmentManager
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction(); // start the FragmentTransaction
-                fragmentTransaction.replace(R.id.frame, monthRegisterFragment); // replace the current fragment with MonthRegisterFragment
-                fragmentTransaction.addToBackStack(null); // add to back stack to allow user to navigate back to previous fragment
-                fragmentTransaction.commit(); // commit the FragmentTransaction
-            }
-        });
+
 
 
 
@@ -216,7 +215,14 @@ public class AddFragment extends Fragment {
         int id = MainActivity.vehicleList.size()+1;
 
 
+
+
+
+
+
         Vehicles vehicles = new Vehicles(modelName,plaque,vehicle,id,date);
+
+
 
 
 
@@ -232,6 +238,8 @@ public class AddFragment extends Fragment {
 
                         }
                     });
+
+
 
 
 

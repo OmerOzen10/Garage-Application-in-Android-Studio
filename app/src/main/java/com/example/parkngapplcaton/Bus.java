@@ -16,6 +16,8 @@ public class Bus extends Vehicles{
 //    double priceBus0to6 = 0.11;
 //    double priceBus0to24 = 0.10;
 
+
+
     @Override
     public String getDate() {
         return super.getDate();

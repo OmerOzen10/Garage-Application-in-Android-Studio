@@ -16,6 +16,9 @@ public class Truck extends Vehicles{
 //    double priceTruck0to6 = 0.13;
 //    double priceTruck0to24 = 0.12;
 
+
+
+
     @Override
     public String getDate() {
         return super.getDate();

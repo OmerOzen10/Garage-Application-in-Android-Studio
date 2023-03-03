@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7C7979">
+    android:background="@color/blanchedalmond">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,21 +14,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btnPremium"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="50dp"
-                android:backgroundTint="#4c3f8a"
-                android:fontFamily="@font/poppins_bold"
-                android:text="MONTHLY REGISTRATION"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/addButton"
-                app:layout_constraintStart_toStartOf="@+id/addButton"
-                app:layout_constraintTop_toBottomOf="@+id/addButton" />
 
             <TextView
                 android:id="@+id/txtParking"
@@ -114,7 +99,7 @@
                 android:id="@+id/addButton"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="150dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_bold"
                 android:text="ADD"
@@ -144,9 +129,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
