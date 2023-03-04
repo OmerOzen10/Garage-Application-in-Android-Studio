@@ -116,7 +116,7 @@
                 android:id="@+id/vehicleType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="75dp"
                 android:backgroundTint="@color/black"
                 android:entries="@array/item_names"
                 android:padding="8dp"
