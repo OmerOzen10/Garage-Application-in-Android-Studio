@@ -3,6 +3,7 @@ package com.example.parkngapplcaton;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -57,15 +58,19 @@ public class AddFragment extends Fragment {
     Button addButton;
 
 
-    Switch premium;
+
+
 
     public  final static String TAG = "AddFragment";
+
+    TextView textView1;
 
     DatabaseReference databaseReference;
 
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -75,6 +80,14 @@ public class AddFragment extends Fragment {
         edtPlaque = view.findViewById(R.id.edtPlaque);
         vehicleType = view.findViewById(R.id.vehicleType);
         addButton = view.findViewById(R.id.addButton);
+        textView1 = view.findViewById(R.id.textView1);
+
+
+
+
+
+
+//        textView1.setText("The capacity is: " + (250 - (MainActivity.vehicleList.size())));
 
 
 
@@ -152,11 +165,36 @@ public class AddFragment extends Fragment {
             }
         });
 
+        if (MainActivity.vehicleList.size()<150){
+            textView1.setText("Capacity: " + (150-(MainActivity.vehicleList.size())));
+            textView1.setTextColor(Color.GREEN);
+        }
+        if (MainActivity.vehicleList.size()==150){
+            textView1.setText("The Garage is full");
+            textView1.setTextColor(Color.RED);
+        }
+
+
         addButton.setOnClickListener(view1 -> {
 
             if (Correction()){
 
+                if (MainActivity.vehicleList.size()<150){
                     InsertData();
+                    textView1.setText("Capacity: " + (150-(MainActivity.vehicleList.size())-1) );
+                    textView1.setTextColor(Color.GREEN);
+
+                    if (MainActivity.vehicleList.size()==149){
+                        textView1.setText("The Garage is full");
+                        textView1.setTextColor(Color.RED);
+                    }
+
+                }
+
+
+
+
+//                    textView1.setText(String.valueOf(MainActivity.vehicleList.size()+1));
 
                     edtPlaque.getText().clear();
                     edtModel.getText().clear();
@@ -167,6 +205,7 @@ public class AddFragment extends Fragment {
             }
 
         });
+
 
 
 
