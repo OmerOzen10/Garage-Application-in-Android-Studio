@@ -5,7 +5,7 @@ public class Vehicles {
     String modelName;
     String plaque;
     String vehicleType;
-    int id;
+    String id;
     String date;
 
 
@@ -21,7 +21,7 @@ public class Vehicles {
 //    }
 
 
-    public Vehicles(String modelName, String plaque, String vehicleType, int id, String date) {
+    public Vehicles(String modelName, String plaque, String vehicleType, String id, String date) {
         this.modelName = modelName;
         this.plaque = plaque;
         this.vehicleType = vehicleType;
@@ -63,11 +63,11 @@ public class Vehicles {
         this.vehicleType = vehicleType;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

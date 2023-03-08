@@ -84,11 +84,31 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 LocalDateTime date1 = LocalDateTime.parse(dateEntry, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                 Duration duration = Duration.between(date1,dateExit);
                 int totalTime = (int) duration.toMinutes();
+                
+
 
                 int hours = totalTime / 60;
                 int remainingMinutes = totalTime % 60;
 
-                String totalDuration = "The duration was: " + hours + "." + remainingMinutes + " Hours";
+                int day = hours / 24;
+                int remainingHours = hours % 24;
+
+                String totalDuration = null;
+
+                if (hours>24){
+
+                    totalDuration = "The duration was: " + day + " Day and " + remainingHours + " Hours";
+
+                }
+                if (hours<24){
+
+                    totalDuration = "The duration was: " + hours + "." + remainingMinutes + " Hours";
+
+                }
+
+
+
+                
 
 
                 Car car = new Car();
@@ -184,6 +204,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 }
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @SuppressLint("NotifyDataSetChanged")
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.d(TAG, "before: " + vehiclesList.size());
@@ -202,6 +223,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                                 notifyItemRemoved(position);
                                 mDatabaseRef.child(key).removeValue();
                                 notifyDataSetChanged();
+
 
                             }
                         });

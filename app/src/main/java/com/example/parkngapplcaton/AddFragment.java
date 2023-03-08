@@ -165,11 +165,11 @@ public class AddFragment extends Fragment {
             }
         });
 
-        if (MainActivity.vehicleList.size()<150){
-            textView1.setText("Capacity: " + (150-(MainActivity.vehicleList.size())));
+        if (MainActivity.vehicleList.size()<3){
+            textView1.setText("Capacity: " + (3-(MainActivity.vehicleList.size())));
             textView1.setTextColor(Color.GREEN);
         }
-        if (MainActivity.vehicleList.size()==150){
+        if (MainActivity.vehicleList.size()==3){
             textView1.setText("The Garage is full");
             textView1.setTextColor(Color.RED);
         }
@@ -178,13 +178,12 @@ public class AddFragment extends Fragment {
         addButton.setOnClickListener(view1 -> {
 
             if (Correction()){
-
-                if (MainActivity.vehicleList.size()<150){
+                if (MainActivity.vehicleList.size()<3){
                     InsertData();
-                    textView1.setText("Capacity: " + (150-(MainActivity.vehicleList.size())-1) );
+                    textView1.setText("Capacity: " + (3-(MainActivity.vehicleList.size())-1) );
                     textView1.setTextColor(Color.GREEN);
 
-                    if (MainActivity.vehicleList.size()==149){
+                    if (MainActivity.vehicleList.size()==2){
                         textView1.setText("The Garage is full");
                         textView1.setTextColor(Color.RED);
                     }
@@ -251,7 +250,11 @@ public class AddFragment extends Fragment {
         String plaque = Objects.requireNonNull(edtPlaque.getText()).toString();
         String vehicle = vehicleType.getSelectedItem().toString();
         String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-        int id = MainActivity.vehicleList.size()+1;
+        String id = edtPlaque.getText().toString();
+
+
+
+
 
 
 
@@ -265,7 +268,7 @@ public class AddFragment extends Fragment {
 
 
 
-            databaseReference.child("vehicles").child(String.valueOf((id))).setValue(vehicles)
+            databaseReference.child("vehicles").child((id)).setValue(vehicles)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -276,6 +279,7 @@ public class AddFragment extends Fragment {
 
 
                         }
+
                     });
 
 
@@ -283,7 +287,10 @@ public class AddFragment extends Fragment {
 
 
 
+
     }
+
+
 
     @Nullable
     @Override
