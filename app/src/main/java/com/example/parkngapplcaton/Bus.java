@@ -17,6 +17,25 @@ public class Bus extends Vehicles{
 //    double priceBus0to24 = 0.10;
 
 
+    @Override
+    public long getDuration() {
+        return super.getDuration();
+    }
+
+    @Override
+    public void setDuration(long duration) {
+        super.setDuration(duration);
+    }
+
+    @Override
+    public boolean getPremium() {
+        return super.getPremium();
+    }
+
+    @Override
+    public void setPremium(boolean premium) {
+        super.setPremium(premium);
+    }
 
     @Override
     public String getDate() {

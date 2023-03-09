@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -31,6 +35,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
@@ -42,7 +48,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     ArrayList<Vehicles> vehiclesList;
 
+    List<Vehicles> premiumVehiclesList = new ArrayList<>();
+
+
     public  final static String TAG = "MyAdapter";
+
 
 
 
@@ -70,12 +80,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.plaque.setText(vehicles.getPlaque());
         holder.enteredTime.setText(vehicles.getDate());
         holder.vehicleType.setText(vehicles.getVehicleType());
+        holder.duration.setText(String.valueOf(vehicles.getDuration()));
+
+        if (vehicles.premium){
+            holder.premium.setVisibility(View.VISIBLE);
+            holder.duration.setVisibility(View.VISIBLE);
+//            holder.layout.setBackgroundColor(Color.GREEN);
+//            holder.delete.setVisibility(View.GONE);
+
+        }
+
+
+
+
 
 
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "mahmut " + premiumVehiclesList.size());
 
                 LocalDateTime dateExit = LocalDateTime.now();
 
@@ -105,10 +129,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                     totalDuration = "The duration was: " + hours + "." + remainingMinutes + " Hours";
 
                 }
+//                holder.duration.getText().toString().equals("1 Month = 250 €"
+
+//                for (String id: deletedVehicles){
+//
+//                    mDatabaseRef.child(id).removeValue();
+//                }
 
 
 
-                
+
+
+
 
 
                 Car car = new Car();
@@ -203,6 +235,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                     }
                 }
 
+
+
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @SuppressLint("NotifyDataSetChanged")
                             @Override
@@ -227,6 +261,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
                             }
                         });
+
                 builder.show();
             }
         });
@@ -243,8 +278,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
 
         ConstraintLayout layout;
-        TextView modelName,plaque,enteredTime,vehicleType;
+        TextView modelName,plaque,enteredTime,vehicleType,duration;
         ImageButton delete;
+        ImageView premium;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -254,6 +290,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             vehicleType = itemView.findViewById(R.id.txtVehicleType);
             layout = itemView.findViewById(R.id.layoutOmer);
             delete = itemView.findViewById(R.id.delete);
+            premium = itemView.findViewById(R.id.premium);
+            duration = itemView.findViewById(R.id.txtDuration);
 
         }
     }

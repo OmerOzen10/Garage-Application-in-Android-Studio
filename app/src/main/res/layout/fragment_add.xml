@@ -32,8 +32,7 @@
                 android:layout_marginTop="124dp"
                 android:background="@drawable/wave__2_"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </ImageView>
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
 
             <ImageView
                 android:id="@+id/ImageWave"
@@ -113,7 +112,7 @@
                 android:id="@+id/addButton"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="70dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_bold"
                 android:text="ADD"
@@ -130,19 +129,20 @@
                 android:id="@+id/vehicleType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@color/black"
                 android:entries="@array/item_names"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
+                app:layout_constraintTop_toBottomOf="@+id/premiumSwitch" />
 
             <TextView
 
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Capacity"
                 android:textSize="13dp"
@@ -150,6 +150,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vehicleType" />
+
+            <Switch
+                android:id="@+id/premiumSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textSize="15dp"
+                android:text="Premium"
+                android:fontFamily="@font/poppins_semibold"
+                app:layout_constraintEnd_toStartOf="@+id/spinnerMonthly"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
+
+            <Spinner
+                android:id="@+id/spinnerMonthly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/premiumSwitch"
+                android:entries="@array/item_names_premium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/premiumSwitch"
+                app:layout_constraintTop_toTopOf="@+id/premiumSwitch"
+                android:clickable="false"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
