@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,8 +37,6 @@ public class SeeFragment extends Fragment {
         mDatabaseRef = databaseRef;
     }
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,46 +54,43 @@ public class SeeFragment extends Fragment {
         adapter = new MyAdapter(view.getContext(),MainActivity.vehicleList,mDatabaseRef);
         recyclerView.setAdapter(adapter);
 
-        Query query = mDatabaseRef.orderByChild("premium").equalTo(true);
-
-        query.addValueEventListener(new ValueEventListener() {
+        mDatabaseRef.orderByChild("premium").equalTo(true).addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                MainActivity.vehicleListPremium.clear();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                    Vehicles vehicles1 = snapshot1.getValue(Vehicles.class);
-                    if (vehicles1 != null){
-                        MainActivity.vehicleListPremium.add(vehicles1);
-                    }
-                }
-                Log.d(TAG, "onDataChange: premium" + MainActivity.vehicleListPremium.size());
-
-                for (int i = 0; i < MainActivity.vehicleListPremium.size(); i++){
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Vehicles vehicles = snapshot.getValue(Vehicles.class);
+                if (vehicles != null) {
                     long currentTime = System.currentTimeMillis();
-                    long endTime = MainActivity.vehicleListPremium.get(i).getDuration();
-                    Log.d(TAG, "onDataChange: currentTime " + currentTime);
-
-                    Log.d(TAG, "onDataChange: endTime" + endTime);
+                    long endTime = vehicles.getDuration();
                     long duration = TimeUnit.MILLISECONDS.toSeconds(endTime - currentTime);
-
-                    Log.d(TAG, "onDataChange: duration " + duration);
-
-                    if (duration <= 0){
-                        String key = String.valueOf(MainActivity.vehicleListPremium.get(i).getId());
+                    Log.d(TAG, "onChildAdded: duration" + duration);
+                    if (duration <= 0) {
+                        String key = snapshot.getKey();
                         mDatabaseRef.child(key).removeValue();
-                        int index = MainActivity.vehicleList.indexOf(MainActivity.vehicleListPremium.get(i));
-                        if (index != -1){
-                            MainActivity.vehicleList.remove(index);
-                        }
                     }
                 }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                // handle changed data
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                // handle removed data
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                // handle moved data
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // handle error
             }
         });
+
 
 
 

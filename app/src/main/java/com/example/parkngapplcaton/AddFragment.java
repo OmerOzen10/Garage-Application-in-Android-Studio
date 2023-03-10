@@ -277,7 +277,7 @@ public class AddFragment extends Fragment {
 
         switch (selectedMonthIndex){
             case 1 :
-                duration = LocalDateTime.now().plusSeconds(1).toInstant(ZoneOffset.UTC).toEpochMilli();
+                duration = LocalDateTime.now().plusDays(30).toInstant(ZoneOffset.UTC).toEpochMilli();
                 break;
             case 2 :
                 duration = LocalDateTime.now().plusDays(90).toInstant(ZoneOffset.UTC).toEpochMilli();
