@@ -84,19 +84,6 @@ public class AddFragment extends Fragment {
         vehicleType = view.findViewById(R.id.vehicleType);
         addButton = view.findViewById(R.id.addButton);
         textView1 = view.findViewById(R.id.textView1);
-        spinnerMonthly = view.findViewById(R.id.spinnerMonthly);
-        premiumSwitch = view.findViewById(R.id.premiumSwitch);
-
-
-        spinnerMonthly.setEnabled(false);
-
-
-        premiumSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                spinnerMonthly.setEnabled(premiumSwitch.isChecked());
-            }
-        });
 
 
 
@@ -269,41 +256,8 @@ public class AddFragment extends Fragment {
         String vehicle = vehicleType.getSelectedItem().toString();
         String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         String id = edtPlaque.getText().toString();
-        boolean premium = premiumSwitch.isChecked();
 
-
-        int selectedMonthIndex = spinnerMonthly.getSelectedItemPosition();
-        long duration = 0;
-
-        switch (selectedMonthIndex){
-            case 1 :
-                duration = LocalDateTime.now().plusDays(30).toInstant(ZoneOffset.UTC).toEpochMilli();
-                break;
-            case 2 :
-                duration = LocalDateTime.now().plusDays(90).toInstant(ZoneOffset.UTC).toEpochMilli();
-                break;
-            case 3 :
-                duration = LocalDateTime.now().plusDays(180).toInstant(ZoneOffset.UTC).toEpochMilli();
-                break;
-            case 4 :
-                duration = LocalDateTime.now().plusDays(365).toInstant(ZoneOffset.UTC).toEpochMilli();
-                break;
-            default:
-                System.out.println("Invalid month selected");
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        Vehicles vehicles = new Vehicles(modelName,plaque,vehicle,id,date,premium,duration);
+        Vehicles vehicles = new Vehicles(modelName,plaque,vehicle,id,date);
 
 
 

@@ -15,25 +15,7 @@ public class Car extends Vehicles{
 //    double priceCar3 = 3;
 
 
-    @Override
-    public long getDuration() {
-        return super.getDuration();
-    }
 
-    @Override
-    public void setDuration(long duration) {
-        super.setDuration(duration);
-    }
-
-    @Override
-    public boolean getPremium() {
-        return super.getPremium();
-    }
-
-    @Override
-    public void setPremium(boolean premium) {
-        super.setPremium(premium);
-    }
 
     @Override
     public String getDate() {

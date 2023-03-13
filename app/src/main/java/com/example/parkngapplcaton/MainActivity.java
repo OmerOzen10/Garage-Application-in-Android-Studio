@@ -2,6 +2,7 @@ package com.example.parkngapplcaton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
@@ -27,9 +29,8 @@ import java.util.Collections;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Vehicles> vehicleList;
-    public static ArrayList<Vehicles> vehicleListPremium;
+    public static ArrayList<Vehicles> filteredVehicles;
     public static final String TAG = "MainActivity";
-
     public static DatabaseReference databaseReference;
 
     @Override
@@ -40,14 +41,18 @@ public class MainActivity extends AppCompatActivity {
 
         vehicleList = new ArrayList<>();
 
-        vehicleListPremium = new ArrayList<>();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(navListener);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("vehicles");
         readData();
-    }
+
+       }
+
+
+
+
 
     private void readData() {
 

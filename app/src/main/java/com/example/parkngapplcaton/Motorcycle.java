@@ -15,25 +15,7 @@ public class Motorcycle extends Vehicles{
 //    double priceMotorcycle0to24 = 0.03;
 
 
-    @Override
-    public long getDuration() {
-        return super.getDuration();
-    }
 
-    @Override
-    public void setDuration(long duration) {
-        super.setDuration(duration);
-    }
-
-    @Override
-    public boolean getPremium() {
-        return super.getPremium();
-    }
-
-    @Override
-    public void setPremium(boolean premium) {
-        super.setPremium(premium);
-    }
 
     @Override
     public String getDate() {

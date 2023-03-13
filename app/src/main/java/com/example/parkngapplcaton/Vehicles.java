@@ -9,9 +9,7 @@ public class Vehicles {
     String date;
 
 
-    boolean premium;
 
-    long duration;
 
 
     public Vehicles(){}
@@ -26,36 +24,19 @@ public class Vehicles {
 //    }
 
 
-    public Vehicles(String modelName, String plaque, String vehicleType, String id, String date, boolean premium, long duration) {
+    public Vehicles(String modelName, String plaque, String vehicleType, String id, String date) {
         this.modelName = modelName;
         this.plaque = plaque;
         this.vehicleType = vehicleType;
         this.id = id;
         this.date = date;
-        this.premium = premium;
-        this.duration = duration;
+
 
     }
 
 //    public boolean isPremium() {
 //        return premium;
 //    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public void setDuration(long duration) {
-        this.duration = duration;
-    }
-
-    public boolean getPremium() {
-        return premium;
-    }
-
-    public void setPremium(boolean premium) {
-        this.premium = premium;
-    }
 
     public String getDate() {
         return date;

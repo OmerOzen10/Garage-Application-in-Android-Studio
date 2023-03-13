@@ -4,39 +4,28 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Locale;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
@@ -48,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     ArrayList<Vehicles> vehiclesList;
 
-    List<Vehicles> premiumVehiclesList = new ArrayList<>();
+    ArrayList<Vehicles> filteredVehiclesList;
 
 
     public  final static String TAG = "MyAdapter";
@@ -59,10 +48,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
 
 
-    public MyAdapter(Context context, ArrayList<Vehicles> vehiclesList, DatabaseReference databaseRef) {
+    public MyAdapter(Context context, ArrayList<Vehicles> vehiclesList, DatabaseReference databaseRef, ArrayList<Vehicles> filteredVehiclesList) {
         this.context = context;
         this.vehiclesList = vehiclesList;
         mDatabaseRef = databaseRef;
+        this.filteredVehiclesList = filteredVehiclesList;
     }
 
     @NonNull
@@ -72,6 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         return new MyViewHolder(v);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
@@ -80,26 +71,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.plaque.setText(vehicles.getPlaque());
         holder.enteredTime.setText(vehicles.getDate());
         holder.vehicleType.setText(vehicles.getVehicleType());
-        holder.duration.setText(String.valueOf(vehicles.getDuration()));
-
-        if (vehicles.premium){
-            holder.premium.setVisibility(View.VISIBLE);
-            holder.duration.setVisibility(View.VISIBLE);
-//            holder.layout.setBackgroundColor(Color.GREEN);
-//            holder.delete.setVisibility(View.GONE);
-
-        }
-
-
-
-
-
-
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "mahmut " + premiumVehiclesList.size());
 
                 LocalDateTime dateExit = LocalDateTime.now();
 
@@ -108,7 +82,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 LocalDateTime date1 = LocalDateTime.parse(dateEntry, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                 Duration duration = Duration.between(date1,dateExit);
                 int totalTime = (int) duration.toMinutes();
-                
+
 
 
                 int hours = totalTime / 60;
@@ -129,18 +103,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                     totalDuration = "The duration was: " + hours + "." + remainingMinutes + " Hours";
 
                 }
-//                holder.duration.getText().toString().equals("1 Month = 250 €"
-
-//                for (String id: deletedVehicles){
-//
-//                    mDatabaseRef.child(id).removeValue();
-//                }
-
-
-
-
-
-
 
 
                 Car car = new Car();
@@ -242,16 +204,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.d(TAG, "before: " + vehiclesList.size());
-
-
-
-                                // SAKIN AYNI APTALLIGI TEKRAR YAPMA 2 SAATIN COP OLDU //
-
-
-//                                vehiclesList.remove(position);
-//                                notifyItemRemoved(position);
-
-
                                 String key = String.valueOf(vehiclesList.get(position).getId());
                                 vehiclesList.remove(position);
                                 notifyItemRemoved(position);
@@ -265,7 +217,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 builder.show();
             }
         });
+
+
+
     }
+    public void setFilteredList(ArrayList<Vehicles> filteredList){
+      this.vehiclesList =filteredList;
+      notifyDataSetChanged();
+    }
+
 
 
 
@@ -274,13 +234,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         return vehiclesList.size();
     }
 
+
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
 
         ConstraintLayout layout;
-        TextView modelName,plaque,enteredTime,vehicleType,duration;
+        TextView modelName,plaque,enteredTime,vehicleType;
         ImageButton delete;
-        ImageView premium;
+        SearchView search;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -290,8 +252,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             vehicleType = itemView.findViewById(R.id.txtVehicleType);
             layout = itemView.findViewById(R.id.layoutOmer);
             delete = itemView.findViewById(R.id.delete);
-            premium = itemView.findViewById(R.id.premium);
-            duration = itemView.findViewById(R.id.txtDuration);
+            search = itemView.findViewById(R.id.search);
 
         }
     }
