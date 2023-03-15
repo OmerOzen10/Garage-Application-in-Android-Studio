@@ -11,78 +11,122 @@
     android:background="@drawable/border">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Model Name : "
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtModel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
 
         android:id="@+id/txtModel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Model Name"
-        android:textColor="#252525"
-        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Plate Number : "
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
     <TextView
         android:id="@+id/txtPlaque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_bold"
         android:text="Plaque"
-        android:textColor="#252525"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtVehicleType"
-        app:layout_constraintEnd_toStartOf="@+id/txtVehicleType"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtVehicleType"
-        app:layout_constraintVertical_bias="1.0" />
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView1"
+        app:layout_constraintEnd_toEndOf="@+id/txtModel"
+        app:layout_constraintStart_toStartOf="@+id/txtModel" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Vehicle Type : "
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <TextView
         android:id="@+id/txtVehicleType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:paddingTop="10dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Vehicle Type"
-        android:textColor="#252525"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtModel" />
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/txtPlaque"
+        app:layout_constraintStart_toStartOf="@+id/txtPlaque" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Entered Time : "
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/txtEntered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_bold"
         android:text="Time"
-        android:textColor="#252525"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtVehicleType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtVehicleType"
-        app:layout_constraintTop_toTopOf="@+id/txtVehicleType"
-        app:layout_constraintVertical_bias="1.0" />
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/txtVehicleType"
+        app:layout_constraintStart_toStartOf="@+id/txtVehicleType" />
 
     <ImageButton
         android:id="@+id/delete"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/baseline_close_24"
-        android:src="@drawable/baseline_close_24"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/close1"
+        android:backgroundTint="#FF0000"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

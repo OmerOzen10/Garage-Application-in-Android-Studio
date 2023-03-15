@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,8 +17,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 
 import java.time.Duration;
@@ -60,6 +63,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.list_vehicles,parent,false);
         return new MyViewHolder(v);
+
+
     }
 
 
@@ -71,6 +76,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.plaque.setText(vehicles.getPlaque());
         holder.enteredTime.setText(vehicles.getDate());
         holder.vehicleType.setText(vehicles.getVehicleType());
+
+
+        if(position%2==0){
+
+            holder.layout.startAnimation(AnimationUtils.loadAnimation(context,R.anim.first_item));
+        }else {
+            holder.layout.startAnimation(AnimationUtils.loadAnimation(context,R.anim.second_item));
+        }
+
+
+
+
+
+
+
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

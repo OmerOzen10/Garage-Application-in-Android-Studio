@@ -1,5 +1,6 @@
 package com.example.parkngapplcaton;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -62,6 +64,16 @@ public class SeeFragment extends Fragment {
         adapter = new MyAdapter(view.getContext(),MainActivity.vehicleList,mDatabaseRef,MainActivity.filteredVehicles);
         recyclerView.setAdapter(adapter);
         search = view.findViewById(R.id.search);
+
+        
+        
+        ConstraintLayout constraintLayout = view.findViewById(R.id.mainLayout);
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
+        
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

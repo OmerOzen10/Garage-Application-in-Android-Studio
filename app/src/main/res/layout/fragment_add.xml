@@ -62,7 +62,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ImageWave"
-                app:startIconDrawable="@drawable/edit1">
+                app:startIconDrawable="@drawable/edit1"
+                app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtModel"
@@ -70,6 +71,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
                     android:maxLength="27"
+                    android:textColor="@color/black"
                     android:outlineAmbientShadowColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,7 +95,8 @@
                 app:layout_constraintStart_toStartOf="@+id/layoutModel"
                 app:layout_constraintTop_toBottomOf="@+id/layoutModel"
                 app:placeholderText="ex: 00ABC0000"
-                app:startIconDrawable="@drawable/ic_plaque">
+                app:startIconDrawable="@drawable/ic_plaque"
+                app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPlaque"
@@ -102,6 +105,7 @@
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:maxLength="9"
+                    android:textColor="@color/black"
                     android:outlineAmbientShadowColor="@color/black"
                     app:layout_constraintStart_toStartOf="@+id/layoutPlaque" />
 
@@ -130,12 +134,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="@color/black"
+                android:background="@color/black"
+                android:textColor="@color/white"
                 android:entries="@array/item_names"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutPlaque" />
+
 
             <TextView
 
