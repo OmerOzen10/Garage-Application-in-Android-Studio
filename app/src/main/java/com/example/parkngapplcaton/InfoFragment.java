@@ -1,12 +1,17 @@
 package com.example.parkngapplcaton;
 
+import android.animation.LayoutTransition;
 import android.media.Image;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,134 +20,55 @@ import androidx.fragment.app.Fragment;
 
 public class InfoFragment extends Fragment {
 
-    CardView cardViewCar,cardViewInfoCar,cardViewTruck,cardViewInfoTruck,cardViewBus,cardViewInfoBus,
-    cardViewTaxi,cardViewInfoTaxi,cardViewMotor,cardViewInfoMotor;
+    CardView cardViewCar;
+    LinearLayout linerLayoutCar;
 
-    ImageView closeCardViewCar,closeCardViewTruck,closeCardViewBus,closeCardViewTaxi,closeCardViewMotor;
+    TextView demo1,demo2,demo3,demo4,demo5;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        cardViewCar = view.findViewById(R.id.CardViewCar);
-        cardViewInfoCar = view.findViewById(R.id.cardViewInfo);
-        closeCardViewCar = view.findViewById(R.id.closeImageCar);
-        cardViewTruck = view.findViewById(R.id.CardViewTruck);
-        cardViewInfoTruck = view.findViewById(R.id.cardViewInfoTruck);
-        closeCardViewTruck = view.findViewById(R.id.closeImageTruck);
-        cardViewBus = view.findViewById(R.id.CardViewBus);
-        cardViewInfoBus = view.findViewById(R.id.cardViewInfoBus);
-        closeCardViewBus = view.findViewById(R.id.closeImageBus);
-        cardViewTaxi = view.findViewById(R.id.CardViewTaxi);
-        cardViewInfoTaxi = view.findViewById(R.id.cardViewInfoTaxi);
-        closeCardViewTaxi = view.findViewById(R.id.closeImageTaxi);
-        cardViewMotor = view.findViewById(R.id.CardViewMotorcycle);
-        cardViewInfoMotor = view.findViewById(R.id.cardViewInfoMotor);
-        closeCardViewMotor = view.findViewById(R.id.closeImageMotor);
 
+        cardViewCar = view.findViewById(R.id.cardViewCar);
+        linerLayoutCar = view.findViewById(R.id.linearLayoutCar);
+        demo1 = view.findViewById(R.id.demo1);
+        demo2 = view.findViewById(R.id.demo2);
+        demo3 = view.findViewById(R.id.demo3);
+        demo4 = view.findViewById(R.id.demo4);
+        demo5 = view.findViewById(R.id.demo5);
 
+        final float originalRadius = cardViewCar.getRadius();
 
-
-
+        linerLayoutCar.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
         cardViewCar.setOnClickListener(new View.OnClickListener() {
+            boolean isToggled = false;
             @Override
             public void onClick(View view) {
-                cardViewInfoCar.setVisibility(View.VISIBLE);
-                cardViewInfoTruck.setVisibility(View.GONE);
-                cardViewInfoBus.setVisibility(View.GONE);
-                cardViewInfoTaxi.setVisibility(View.GONE);
-                cardViewInfoMotor.setVisibility(View.GONE);
+              int v = (demo1.getVisibility() == View.GONE && demo2.getVisibility() == View.GONE && demo3.getVisibility() == View.GONE && demo4.getVisibility() == View.GONE && demo5.getVisibility() == View.GONE)?View.VISIBLE: View.GONE;
+
+              TransitionManager.beginDelayedTransition(linerLayoutCar, new AutoTransition());
+                demo1.setVisibility(v);
+                demo2.setVisibility(v);
+                demo3.setVisibility(v);
+                demo4.setVisibility(v);
+                demo5.setVisibility(v);
+
+                if (isToggled){
+                    cardViewCar.setRadius(originalRadius);
+                }else {
+                    cardViewCar.setRadius(30f);
+                }
+                isToggled = !isToggled;
+
+
             }
         });
 
-        closeCardViewCar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoCar.setVisibility(View.GONE);
-            }
-        });
-
-
-
-        cardViewTruck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoTruck.setVisibility(View.VISIBLE);
-                cardViewInfoCar.setVisibility(View.GONE);
-                cardViewInfoBus.setVisibility(View.GONE);
-                cardViewInfoTaxi.setVisibility(View.GONE);
-                cardViewInfoMotor.setVisibility(View.GONE);
-            }
-        });
-
-        closeCardViewTruck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoTruck.setVisibility(View.GONE);
-            }
-        });
-
-
-
-        cardViewBus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoBus.setVisibility(View.VISIBLE);
-                cardViewInfoTruck.setVisibility(View.GONE);
-                cardViewInfoCar.setVisibility(View.GONE);
-                cardViewInfoTaxi.setVisibility(View.GONE);
-                cardViewInfoMotor.setVisibility(View.GONE);
-            }
-        });
-
-        closeCardViewBus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoBus.setVisibility(View.GONE);
-            }
-        });
-
-
-
-        cardViewTaxi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoTaxi.setVisibility(View.VISIBLE);
-                cardViewInfoTruck.setVisibility(View.GONE);
-                cardViewInfoCar.setVisibility(View.GONE);
-                cardViewInfoBus.setVisibility(View.GONE);
-                cardViewInfoMotor.setVisibility(View.GONE);
-            }
-        });
-
-        closeCardViewTaxi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoTaxi.setVisibility(View.GONE);
-            }
-        });
-
-
-
-        cardViewMotor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoMotor.setVisibility(View.VISIBLE);
-                cardViewInfoTruck.setVisibility(View.GONE);
-                cardViewInfoCar.setVisibility(View.GONE);
-                cardViewInfoBus.setVisibility(View.GONE);
-                cardViewInfoTaxi.setVisibility(View.GONE);
-            }
-        });
-
-        closeCardViewMotor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cardViewInfoMotor.setVisibility(View.GONE);
-            }
-        });
 
     }
+
+
 
     @Nullable
     @Override

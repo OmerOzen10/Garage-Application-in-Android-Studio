@@ -54,7 +54,7 @@ public class AddFragment extends Fragment {
 
     TextInputEditText edtModel,edtPlaque;
 
-    Spinner vehicleType,spinnerMonthly;
+    Spinner vehicleType;
 
     Button addButton;
 

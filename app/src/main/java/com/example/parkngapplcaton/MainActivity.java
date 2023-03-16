@@ -10,9 +10,12 @@ import androidx.fragment.app.FragmentManager;
 import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
