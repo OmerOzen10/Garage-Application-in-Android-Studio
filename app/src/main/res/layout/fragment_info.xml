@@ -8,108 +8,543 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="90dp"
-        android:backgroundTint="#48039A"
-        app:cardCornerRadius="90dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linearLayoutCar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:animateLayoutChanges="true"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/caricon3" />
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="-50dp"
+                android:layout_marginBottom="-50dp"
+                android:src="@drawable/barongar"/>
 
             <TextView
-                android:id="@+id/demo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:drawableStart="@drawable/options"
+                android:text="INFORMATION"
+                android:textSize="30dp"
+                android:textColor="#33073A"
                 android:fontFamily="@font/poppins_bold"
-                android:text="First 30 minute cost 1 Euro"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                android:layout_gravity="center_horizontal"/>
 
-            <TextView
-                android:id="@+id/demo2"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:drawableStart="@drawable/options"
-                android:fontFamily="@font/poppins_bold"
-                android:text="First 1 hour cost 2 Euro"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#48039A"
+                android:visibility="visible"
+                app:cardCornerRadius="900dp">
 
-            <TextView
-                android:id="@+id/demo3"
+                <LinearLayout
+                    android:id="@+id/linearLayoutCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/car" />
+
+                    <TextView
+                        android:id="@+id/demo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 30 minute cost 1 Euro"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/demo2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 1 hour cost 2 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/demo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 2 hour cost 3 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/demo4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/discount"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=" It is only 25 cents for every"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/demo5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginRight="3dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="  30 minutes after 2 hours"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTruck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:drawableStart="@drawable/options"
-                android:fontFamily="@font/poppins_bold"
-                android:text="First 2 hour cost 3 Euro"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#48039A"
+                android:visibility="visible"
+                app:cardCornerRadius="900dp">
 
-            <TextView
-                android:id="@+id/demo4"
+                <LinearLayout
+                    android:id="@+id/linearLayoutTruck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/truck" />
+
+                    <TextView
+                        android:id="@+id/txtTruck1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 30 minute cost 1.5 Euro"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtTruck2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 1 hour cost 3 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtTruck3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 2 hour cost 4.5 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtTruck4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/discount"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=" It is only 50 cents for every"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtTruck5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginRight="3dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="  30 minutes after 2 hours"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:drawableStart="@drawable/discount"
-                android:fontFamily="@font/poppins_bold"
-                android:text=" It is only 25 cents for every"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#48039A"
+                android:visibility="visible"
+                app:cardCornerRadius="900dp">
 
-            <TextView
-                android:id="@+id/demo5"
+                <LinearLayout
+                    android:id="@+id/linearLayoutBus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/bus" />
+
+                    <TextView
+                        android:id="@+id/txtBus1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 30 minute cost 1.25 Euro"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtBus2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 1 hour cost 2.50 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtBus3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 2 hour cost 3.75 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtBus4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/discount"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=" It is only 50 cents for every"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtBus5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginRight="3dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="  30 minutes after 2 hours"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTaxi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25sp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="-10dp"
-                android:layout_marginRight="3dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="  30 minutes after 2 hours"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#48039A"
+                android:visibility="visible"
+                app:cardCornerRadius="900dp">
 
+                <LinearLayout
+                    android:id="@+id/linearLayoutTaxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/taxi" />
+                    <TextView
+                        android:id="@+id/txtTaxi1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 30 minute cost 1 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/txtTaxi2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 1 hour cost 2 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/txtTaxi3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 2 hour cost 3 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtTaxi4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/discount"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=" It is only 30 cents for every"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtTaxi5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginRight="3dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="  30 minutes after 2 hours"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewMotor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#48039A"
+                android:visibility="visible"
+                app:cardCornerRadius="900dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutMotor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/motorcycle" />
+                    <TextView
+                        android:id="@+id/txtMotor1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 30 minute cost 50 cent"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/txtMotor2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 1 hour cost 1 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/txtMotor3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/options"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="First 2 hour cost 1.5 Euro"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtMotor4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:drawableStart="@drawable/discount"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=" It is only 20 cents for every"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtMotor5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginRight="3dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="  30 minutes after 2 hours"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-
-    </androidx.cardview.widget.CardView>
-
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
