@@ -31,7 +31,6 @@ public class InfoFragment extends Fragment {
     LinearLayout linerLayoutCar, linearLayoutTruck,linearLayoutBus,linearLayoutTaxi,linearLayoutMotor;
 
     TextView demo1,demo2,demo3,demo4,demo5,txtTruck1,txtTruck2,txtTruck3,txtTruck4,txtTruck5,txtBus1,txtBus2,txtBus3,txtBus4,txtBus5,txtTaxi1,txtTaxi2,txtTaxi3,txtTaxi4,txtTaxi5,txtMotor1,txtMotor2,txtMotor3,txtMotor4,txtMotor5;
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
